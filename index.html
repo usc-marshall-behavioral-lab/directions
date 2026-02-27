@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#990000">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Find MBRL">
 <title>Find the Lab — Marshall Behavioral Research Lab</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -96,13 +98,11 @@
   .suite-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
   .suite-card-accent { height: 6px; }
   .suite-card-accent.gold-accent { background: linear-gradient(90deg, #9A7B0A, #C5A572); }
-  .suite-card-accent.cardinal-accent { background: linear-gradient(90deg, #990000, #CC3333); }
-  .suite-card-accent.purple-accent { background: linear-gradient(90deg, #7B1FA2, #AB47BC); }
+  .suite-card-accent.blue-accent { background: linear-gradient(90deg, #0070C0, #2E8BD8); }
   .suite-card-inner { padding: 28px; }
   .suite-card-inner .suite-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
   .suite-icon.gold-bg { background: #FFF3E0; }
-  .suite-icon.blue-bg { background: #E3F2FD; }
-  .suite-icon.purple-bg { background: #F3E5F5; }
+  .suite-icon.blue-bg { background: #E0F0FF; }
   .suite-card-inner h3 { font-weight: 700; font-size: 1.15rem; margin-bottom: 4px; }
   .suite-card-inner .suite-tag { font-size: 0.8rem; color: var(--warm-gray); margin-bottom: 16px; }
   .suite-card-inner .suite-detail { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; color: #666; line-height: 1.6; }
@@ -171,8 +171,8 @@
     .journey-card-body { padding: 18px 18px; }
     .journey-card-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
     .journey-card-body p { font-size: 0.88rem; line-height: 1.55; margin-bottom: 8px; }
-    .journey-visual { padding: 16px 10px; min-height: 100px; }
-    .journey-visual svg { max-width: 100%; }
+    .journey-visual { padding: 16px 10px; min-height: 100px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .journey-visual svg { max-width: 100%; min-width: 340px; }
     .map-links { gap: 8px; margin-top: 10px; }
     .map-link { padding: 7px 12px; font-size: 0.78rem; }
     .tip-badge { font-size: 0.75rem; padding: 5px 10px; }
@@ -204,6 +204,24 @@
     .contact-item { gap: 8px; }
     .contact-item svg { width: 16px; height: 16px; }
 
+    /* Lab Manager section */
+    #labmanager { padding: 40px 16px !important; }
+    #labmanager > div { max-width: 100% !important; }
+    #labmanager .section-title { font-size: 1.5rem; }
+    #labmanager div[style*="padding:28px"] { padding: 20px 16px !important; flex-direction: column !important; }
+    #labmanager div[style*="padding:16px 32px"] { padding: 12px 16px 20px 16px !important; }
+    #labmanager div[style*="width:56px"] { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
+    #labmanager h3 { font-size: 1.05rem !important; }
+
+    /* Card access callout mobile */
+    .suite-section div[style*="max-width:700px"] { margin-left: 0 !important; margin-right: 0 !important; padding: 14px 16px !important; }
+
+    /* Contact email wrapping */
+    .contact-item a { word-break: break-all; }
+
+    /* Floor plan swipe hint */
+    .map-scroll-hint { display: block !important; font-size: 0.75rem; }
+
     /* Footer */
     footer { padding: 20px 16px; font-size: 0.65rem; line-height: 1.5; }
   }
@@ -218,9 +236,113 @@
     .suite-card-inner { padding: 16px; }
     .gallery-section .section-title { font-size: 1.3rem; }
   }
+  /* ── Sticky Navigation ── */
+  .sticky-nav {
+    position: fixed;
+    top: -60px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: top 0.35s ease;
+    padding: 0 16px;
+  }
+  .sticky-nav.visible { top: 0; }
+  .sticky-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 48px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .sticky-nav-inner::-webkit-scrollbar { display: none; }
+  .sticky-nav a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+  }
+  .sticky-nav a:hover { color: white; background: rgba(255,255,255,0.08); }
+  .sticky-nav a.active { color: #FFCC00; background: rgba(255,204,0,0.1); }
+  .sticky-nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: white;
+    font-size: 0.85rem;
+    margin-right: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 540px) {
+    .sticky-nav a { font-size: 0.72rem; padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; }
+    .sticky-nav-logo { display: none; }
+    .sticky-nav-inner { gap: 2px; }
+  }
+
+  /* Floating call button for mobile */
+  .float-call {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 999;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--cardinal);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(153,0,0,0.4);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .float-call:active { transform: scale(0.92); }
+  .float-call svg { width: 24px; height: 24px; }
+  @media (max-width: 768px) {
+    .float-call { display: flex; }
+  }
+
+  /* Scroll offset for anchors */
+  [id] { scroll-margin-top: 56px; }
+
 </style>
 </head>
 <body>
+
+<!-- Floating Call Button (mobile) -->
+<a href="tel:2138219752" class="float-call" aria-label="Call the lab">
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<!-- Sticky Navigation -->
+<nav class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner">
+    <span class="sticky-nav-logo">MBRL</span>
+    <a href="#building">Building</a>
+    <a href="#directions">Directions</a>
+    <a href="#floorplan">Floor Plan</a>
+    <a href="#ll102">LL-102 Computer Lab</a>
+    <a href="#ll112">LL-110/112 Lab Suites</a>
+    <a href="#labmanager">Lab Manager</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <div class="hero">
   <div class="hero-bg"></div>
@@ -243,7 +365,7 @@
   <div class="scroll-cue" onclick="document.querySelector('.gallery-section').scrollIntoView({behavior:'smooth'})">Scroll for directions<div class="arrow"></div></div>
 </div>
 
-<section class="gallery-section">
+<section class="gallery-section" id="building">
   <div class="section-inner">
     <div class="section-label">The Building</div>
     <h2 class="section-title">Dauterive Hall (VPD)</h2>
@@ -269,7 +391,7 @@
   </div>
 </section>
 
-<section class="journey-section">
+<section class="journey-section" id="directions">
   <div class="journey-inner">
     <div class="section-label">Wayfinding</div>
     <h2 class="section-title">Your Route to the Lab</h2>
@@ -354,7 +476,7 @@
               </g>
 
               <!-- Compass -->
-              <g transform="translate(530,185)"><circle cx="0" cy="0" r="9" fill="#faf9f7" stroke="#D4CFC5" stroke-width="1"/><text x="0" y="3" text-anchor="middle" font-size="7" fill="#990000" font-weight="700" font-family="system-ui">N</text><polygon points="0,-7 -2,-3 2,-3" fill="#990000"/></g>
+              <g transform="translate(530,185)"><circle cx="0" cy="0" r="9" fill="#faf9f7" stroke="#D4CFC5" stroke-width="1"/><text x="3" y="3" text-anchor="middle" font-size="7" fill="#990000" font-weight="700" font-family="system-ui">N</text><polygon points="7,0 3,-2 3,2" fill="#990000"/></g>
               <defs><marker id="aR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#990000"/></marker></defs>
             </svg>
           </div>
@@ -427,20 +549,45 @@
           <div class="journey-card-body">
             <h3>4 — Find Your Assigned Suite</h3>
             <p>The lab has three suites along the lower level. Look for the <strong>door signs</strong> and check in with the research assistant. Your SONA confirmation email tells you which suite to go to.</p>
-            <p><strong>BUAD 307</strong> (Marketing) → <strong style="color:#9A7B0A;">LL-102</strong> Computer Lab<br><strong>BUAD 304 / 497</strong> (MOR) → <strong style="color:#990000;">LL-112</strong> or <strong style="color:#990000;">LL-110</strong> Suite</p>
+            <p><strong>BUAD 307 (MKT)</strong> → <strong style="color:#9A7B0A;">LL-102</strong> Computer Lab<br><strong>BUAD 304 / 497 (MOR)</strong> → <strong style="color:#0070C0;">LL-112</strong> or <strong style="color:#0070C0;">LL-110</strong> Lab Suite</p>
           </div>
-          <div class="journey-visual" style="padding:12px;">
-            <svg viewBox="0 0 480 110">
-              <circle cx="240" cy="55" r="8" fill="#990000" opacity="0.15"><animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.05;0.2" dur="2.5s" repeatCount="indefinite"/></circle>
-              <circle cx="240" cy="55" r="5" fill="#990000"/>
-              <text x="240" y="78" text-anchor="middle" font-size="7" fill="#990000" font-family="system-ui" font-weight="700">YOU ARE HERE</text>
-              <path d="M 225 55 L 100 90" stroke="#9A7B0A" stroke-width="2.5" stroke-dasharray="6,4" fill="none" marker-end="url(#aG2)"/>
-              <rect x="30" y="80" width="75" height="28" fill="#9A7B0A" rx="6"/><text x="67" y="95" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">LL-102</text><text x="67" y="104" text-anchor="middle" font-size="6" fill="#FFE4A0" font-family="system-ui">Computer Lab</text>
-              <path d="M 255 50 L 340 25" stroke="#990000" stroke-width="2.5" stroke-dasharray="6,4" fill="none" marker-end="url(#aC2)"/>
-              <rect x="340" y="10" width="60" height="28" fill="#990000" rx="6"/><text x="370" y="25" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">LL-112</text><text x="370" y="34" text-anchor="middle" font-size="6" fill="#ffcccc" font-family="system-ui">Suite</text>
-              <path d="M 260 48 L 420 25" stroke="#990000" stroke-width="2.5" stroke-dasharray="6,4" fill="none" marker-end="url(#aC3)"/>
-              <rect x="410" y="10" width="60" height="28" fill="#990000" rx="6"/><text x="440" y="25" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">LL-110</text><text x="440" y="34" text-anchor="middle" font-size="6" fill="#ffcccc" font-family="system-ui">Suite</text>
-              <defs><marker id="aG2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#9A7B0A"/></marker><marker id="aC2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#990000"/></marker><marker id="aC3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#990000"/></marker></defs>
+          <div class="journey-visual" style="padding:16px 12px;">
+            <svg viewBox="0 0 480 140">
+              <!-- Corridor bar -->
+              <rect x="30" y="62" width="420" height="16" fill="#e8e4de" rx="8"/>
+              <text x="240" y="136" text-anchor="middle" font-size="6.5" fill="#bbb" font-family="system-ui" font-weight="500" letter-spacing="2">LOWER LEVEL CORRIDOR</text>
+
+              <!-- You Are Here — center -->
+              <circle cx="240" cy="70" r="14" fill="#990000" opacity="0.08"><animate attributeName="r" values="14;24;14" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.02;0.1" dur="2.5s" repeatCount="indefinite"/></circle>
+              <circle cx="240" cy="70" r="8" fill="white" stroke="#990000" stroke-width="2.5"/>
+              <circle cx="240" cy="70" r="3.5" fill="#990000"/>
+              <text x="240" y="110" text-anchor="middle" font-size="9" fill="#990000" font-family="system-ui" font-weight="700" letter-spacing="0.5">YOU ARE HERE</text>
+
+              <!-- LEFT ARROW — LL-102 -->
+              <line x1="218" y1="70" x2="130" y2="70" stroke="#9A7B0A" stroke-width="3" stroke-dasharray="8,5"/>
+              <polygon points="130,64 118,70 130,76" fill="#9A7B0A"/>
+              <rect x="18" y="78" width="95" height="38" fill="#9A7B0A" rx="8" filter="url(#shadow4)"/>
+              <text x="65" y="96" text-anchor="middle" font-size="13" fill="#fff" font-family="system-ui" font-weight="700">LL-102</text>
+              <text x="65" y="108" text-anchor="middle" font-size="7" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
+              <text x="65" y="130" text-anchor="middle" font-size="7" fill="#9A7B0A" font-family="system-ui" font-weight="600">← LEFT</text>
+
+              <!-- RIGHT ARROW — LL-112 & LL-110 -->
+              <line x1="262" y1="70" x2="340" y2="70" stroke="#0070C0" stroke-width="3" stroke-dasharray="8,5"/>
+              <polygon points="340,64 352,70 340,76" fill="#0070C0"/>
+              <rect x="355" y="30" width="56" height="38" fill="#0070C0" rx="7" filter="url(#shadow4)"/>
+              <text x="383" y="48" text-anchor="middle" font-size="12" fill="#fff" font-family="system-ui" font-weight="700">LL-112</text>
+              <text x="383" y="60" text-anchor="middle" font-size="6" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+              <rect x="418" y="30" width="56" height="38" fill="#0070C0" rx="7" filter="url(#shadow4)"/>
+              <text x="446" y="48" text-anchor="middle" font-size="12" fill="#fff" font-family="system-ui" font-weight="700">LL-110</text>
+              <text x="446" y="60" text-anchor="middle" font-size="6" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+              <text x="415" y="22" text-anchor="middle" font-size="7" fill="#0070C0" font-family="system-ui" font-weight="600">RIGHT →</text>
+
+              <!-- Divider between suites -->
+              <line x1="414" y1="34" x2="414" y2="64" stroke="#005A9E" stroke-width="0.5" opacity="0.4"/>
+
+              <defs>
+                <filter id="shadow4" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+              </defs>
             </svg>
           </div>
         </div>
@@ -449,29 +596,100 @@
   </div>
 </section>
 
-<section class="map-section">
+<section class="map-section" id="floorplan">
   <div class="section-inner">
     <div class="section-label">Lower Level Layout</div>
     <h2 class="section-title">Lab Floor Plan</h2>
     <div class="floor-map-container">
       <div style="width:100%; max-width:860px; margin:0 auto; min-width:500px;">
         <svg viewBox="0 0 500 175" style="width:100%;height:auto;">
-          <defs><linearGradient id="labGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#9A7B0A"/><stop offset="100%" style="stop-color:#7d6308"/></linearGradient><linearGradient id="suiteGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#990000"/><stop offset="100%" style="stop-color:#7a0000"/></linearGradient></defs>
-          <rect x="20" y="5" width="450" height="145" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1.5" rx="4"/>
-          <rect x="120" y="10" width="20" height="135" fill="#f5f3f0" stroke="#e0dcd6" stroke-width="0.75"/><rect x="140" y="42" width="130" height="12" fill="#f5f3f0" stroke="#e0dcd6" stroke-width="0.75"/><rect x="140" y="106" width="130" height="12" fill="#f5f3f0" stroke="#e0dcd6" stroke-width="0.75"/>
-          <rect x="190" y="5" width="40" height="14" fill="#990000" stroke="#7a0000" stroke-width="1" rx="2"/><text x="210" y="14" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui">EXIT</text>
-          <rect x="190" y="136" width="40" height="14" fill="#990000" stroke="#7a0000" stroke-width="1" rx="2"/><text x="210" y="145" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui">EXIT</text>
-          <rect x="5" y="62" width="15" height="28" fill="#9A7B0A" stroke="#7d6308" stroke-width="1" rx="2"/><text x="12.5" y="74" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui">ENT</text><text x="12.5" y="82" text-anchor="middle" font-size="4" fill="#fff" font-family="system-ui">↑1F</text>
-          <rect x="470" y="62" width="15" height="28" fill="#9A7B0A" stroke="#7d6308" stroke-width="1" rx="2"/><text x="477.5" y="74" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui">ENT</text><text x="477.5" y="82" text-anchor="middle" font-size="4" fill="#fff" font-family="system-ui">↑1F</text>
-          <rect x="35" y="10" width="30" height="18" fill="#f5f3f0" stroke="#d4cfc5" stroke-width="1" rx="2"/><text x="50" y="22" text-anchor="middle" font-size="7" fill="#888" font-weight="600" font-family="system-ui">WC</text>
-          <rect x="35" y="74" width="30" height="18" fill="#f5f3f0" stroke="#d4cfc5" stroke-width="1" rx="2"/><text x="50" y="86" text-anchor="middle" font-size="7" fill="#888" font-weight="600" font-family="system-ui">WC</text>
-          <rect x="35" y="30" width="30" height="42" fill="#e8e4de" stroke="#d4cfc5" stroke-width="1" rx="2"/><text x="50" y="48" text-anchor="middle" font-size="6" fill="#888" font-family="system-ui">ELEV</text><text x="50" y="58" text-anchor="middle" font-size="8" fill="#888" font-family="system-ui">↕</text>
-          <rect x="35" y="118" width="80" height="27" fill="url(#labGrad)" stroke="#7d6308" stroke-width="1.5" rx="3"/><text x="75" y="132" text-anchor="middle" font-size="11" fill="#fff" font-weight="700" font-family="system-ui">LL102</text><text x="75" y="141" text-anchor="middle" font-size="5" fill="#fff" font-family="system-ui">Computer Lab</text>
-          <rect x="140" y="54" width="130" height="52" fill="#e0dcd6" stroke="#c9c4bc" stroke-width="1" rx="2"/><text x="205" y="83" text-anchor="middle" font-size="8" fill="#999" font-weight="600" font-family="system-ui">STAIRS</text>
-          <rect x="290" y="10" width="70" height="32" fill="url(#suiteGrad)" stroke="#7a0000" stroke-width="1.5" rx="3"/><text x="325" y="25" text-anchor="middle" font-size="11" fill="#fff" font-weight="700" font-family="system-ui">LL112</text><text x="325" y="35" text-anchor="middle" font-size="5" fill="#ffcccc" font-family="system-ui">Suite</text>
-          <rect x="370" y="10" width="70" height="32" fill="url(#suiteGrad)" stroke="#7a0000" stroke-width="1.5" rx="3"/><text x="405" y="25" text-anchor="middle" font-size="11" fill="#fff" font-weight="700" font-family="system-ui">LL110</text><text x="405" y="35" text-anchor="middle" font-size="5" fill="#ffcccc" font-family="system-ui">Suite</text>
-          <g transform="translate(455, 125)"><circle cx="0" cy="0" r="10" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1"/><text x="0" y="3" text-anchor="middle" font-size="8" fill="#990000" font-weight="700" font-family="system-ui">N</text><polygon points="0,-8 -2,-4 2,-4" fill="#990000"/></g>
-          <g transform="translate(60, 158)"><rect x="0" y="0" width="8" height="8" fill="url(#labGrad)" stroke="#7d6308" stroke-width="0.5" rx="1"/><text x="11" y="7" font-size="5.5" fill="#666" font-family="system-ui">Computer Lab</text><rect x="80" y="0" width="8" height="8" fill="url(#suiteGrad)" stroke="#7a0000" stroke-width="0.5" rx="1"/><text x="91" y="7" font-size="5.5" fill="#666" font-family="system-ui">Suite</text><rect x="135" y="0" width="8" height="8" fill="#9A7B0A" stroke="#7d6308" stroke-width="0.5" rx="1"/><text x="146" y="7" font-size="5.5" fill="#666" font-family="system-ui">Entrance</text></g>
+          <defs>
+            <linearGradient id="labGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#9A7B0A"/><stop offset="100%" style="stop-color:#7d6308"/></linearGradient>
+            <linearGradient id="suiteGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#0070C0"/><stop offset="100%" style="stop-color:#005A9E"/></linearGradient>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#e8e4de" stroke-width="1"/></pattern>
+          </defs>
+
+          <!-- Building outline -->
+          <rect x="20" y="5" width="450" height="145" fill="#faf9f7" stroke="#c9c4bc" stroke-width="2" rx="3"/>
+
+          <!-- ── CORRIDOR (central hallway) ── -->
+          <rect x="120" y="10" width="22" height="135" fill="#f0ece6" stroke="#d4cfc5" stroke-width="0.75"/>
+          <!-- Horizontal corridors -->
+          <rect x="140" y="42" width="145" height="13" fill="#f0ece6" stroke="#d4cfc5" stroke-width="0.75"/>
+          <rect x="140" y="105" width="145" height="13" fill="#f0ece6" stroke="#d4cfc5" stroke-width="0.75"/>
+
+          <!-- ── ENTRANCES from 1F ── -->
+          <g opacity="0.9">
+            <rect x="3" y="60" width="18" height="32" fill="#2D7A3A" stroke="#1E5C2A" stroke-width="1.2" rx="3"/>
+            <text x="12" y="73" text-anchor="middle" font-size="5.5" fill="#fff" font-weight="700" font-family="system-ui">ENT</text>
+            <text x="12" y="82" text-anchor="middle" font-size="4.5" fill="#B8E6C0" font-family="system-ui">↑ 1F</text>
+          </g>
+          <g opacity="0.9">
+            <rect x="469" y="60" width="18" height="32" fill="#2D7A3A" stroke="#1E5C2A" stroke-width="1.2" rx="3"/>
+            <text x="478" y="73" text-anchor="middle" font-size="5.5" fill="#fff" font-weight="700" font-family="system-ui">ENT</text>
+            <text x="478" y="82" text-anchor="middle" font-size="4.5" fill="#B8E6C0" font-family="system-ui">↑ 1F</text>
+          </g>
+
+          <!-- ── EXIT doors ── -->
+          <rect x="190" y="5" width="42" height="10" fill="#990000" stroke="#7a0000" stroke-width="1" rx="2"/><text x="211" y="12.5" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui" letter-spacing="1">EXIT</text>
+          <rect x="190" y="140" width="42" height="10" fill="#990000" stroke="#7a0000" stroke-width="1" rx="2"/><text x="211" y="147.5" text-anchor="middle" font-size="5" fill="#fff" font-weight="600" font-family="system-ui" letter-spacing="1">EXIT</text>
+
+          <!-- ── UTILITY ROOMS ── -->
+          <!-- Restrooms -->
+          <rect x="32" y="10" width="35" height="20" fill="#f5f3f0" stroke="#d4cfc5" stroke-width="0.75" rx="2"/>
+          <text x="49.5" y="23" text-anchor="middle" font-size="7" fill="#aaa" font-weight="600" font-family="system-ui">WC</text>
+          <rect x="32" y="76" width="35" height="20" fill="#f5f3f0" stroke="#d4cfc5" stroke-width="0.75" rx="2"/>
+          <text x="49.5" y="89" text-anchor="middle" font-size="7" fill="#aaa" font-weight="600" font-family="system-ui">WC</text>
+          <!-- Elevator -->
+          <rect x="32" y="32" width="35" height="42" fill="#e8e4de" stroke="#d4cfc5" stroke-width="0.75" rx="2"/>
+          <text x="49.5" y="50" text-anchor="middle" font-size="6.5" fill="#999" font-weight="600" font-family="system-ui">ELEV</text>
+          <text x="49.5" y="62" text-anchor="middle" font-size="10" fill="#999" font-family="system-ui">↕</text>
+
+          <!-- ── STAIRS (center) ── -->
+          <rect x="142" y="55" width="128" height="50" fill="url(#hatch)" stroke="#c9c4bc" stroke-width="1" rx="2"/>
+          <rect x="142" y="55" width="128" height="50" fill="#e8e4de" opacity="0.5" rx="2"/>
+          <text x="206" y="78" text-anchor="middle" font-size="7" fill="#aaa" font-weight="600" font-family="system-ui" letter-spacing="1.5">STAIRS</text>
+          <text x="206" y="88" text-anchor="middle" font-size="5" fill="#bbb" font-family="system-ui">↕ to Ground Floor</text>
+
+          <!-- ═══ LL-102 — COMPUTER LAB ═══ -->
+          <rect x="32" y="108" width="86" height="40" fill="url(#labGrad)" stroke="#7d6308" stroke-width="1.5" rx="4"/>
+          <text x="75" y="126" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-102</text>
+          <text x="75" y="140" text-anchor="middle" font-size="5" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
+          <!-- Door indicator -->
+          <rect x="100" y="105" width="12" height="3" fill="#333" rx="1"/>
+
+          <!-- ═══ LL-112 — LAB SUITE ═══ -->
+          <rect x="288" y="5" width="74" height="44" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="1.5" rx="4"/>
+          <text x="325" y="24" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-112</text>
+          <text x="325" y="38" text-anchor="middle" font-size="5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+          <!-- Door indicator -->
+          <rect x="310" y="49" width="12" height="3" fill="#333" rx="1"/>
+
+          <!-- ═══ LL-110 — LAB SUITE ═══ -->
+          <rect x="368" y="5" width="74" height="44" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="1.5" rx="4"/>
+          <text x="405" y="24" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-110</text>
+          <text x="405" y="38" text-anchor="middle" font-size="5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+          <!-- Door indicator -->
+          <rect x="392" y="49" width="12" height="3" fill="#333" rx="1"/>
+
+          <!-- ── Lab Manager office (lower-right corner of LL-110) ── -->
+          <rect x="419" y="31" width="22" height="16" fill="#990000" stroke="#7a0000" stroke-width="0.75" rx="1.5" opacity="0.9"/>
+          <text x="430" y="39" text-anchor="middle" font-size="4" fill="#fff" font-weight="700" font-family="system-ui">110-A</text>
+          <text x="430" y="45" text-anchor="middle" font-size="3.2" fill="#CCE4F5" font-family="system-ui">Lab Mgr</text>
+          <text x="438" y="29" font-size="5" fill="#FFCC00">★</text>
+
+          <!-- ── Compass ── -->
+          <g transform="translate(458, 130)"><circle cx="0" cy="0" r="11" fill="#faf9f7" stroke="#d4cfc5" stroke-width="1"/><text x="3" y="3" text-anchor="middle" font-size="8" fill="#990000" font-weight="700" font-family="system-ui">N</text><polygon points="8,0 4,-2.5 4,2.5" fill="#990000"/></g>
+
+          <!-- ── Legend ── -->
+          <g transform="translate(50, 158)">
+            <rect x="0" y="0" width="10" height="10" fill="url(#labGrad)" stroke="#7d6308" stroke-width="0.5" rx="1.5"/><text x="14" y="8" font-size="5.5" fill="#666" font-family="system-ui">Computer Lab</text>
+            <rect x="85" y="0" width="10" height="10" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="0.5" rx="1.5"/><text x="99" y="8" font-size="5.5" fill="#666" font-family="system-ui">Lab Suite</text>
+            <rect x="155" y="0" width="10" height="10" fill="#2D7A3A" stroke="#1E5C2A" stroke-width="0.5" rx="1.5"/><text x="169" y="8" font-size="5.5" fill="#666" font-family="system-ui">Entrance</text>
+            <rect x="215" y="0" width="10" height="10" fill="#990000" stroke="#7a0000" stroke-width="0.5" rx="1.5"/><text x="229" y="8" font-size="5.5" fill="#666" font-family="system-ui">Exit</text>
+            <rect x="258" y="1" width="10" height="3" fill="#333" rx="1"/><text x="272" y="8" font-size="5.5" fill="#666" font-family="system-ui">Door</text>
+            <rect x="303" y="0" width="10" height="10" fill="#990000" rx="1.5" opacity="0.85"/><text x="315" y="5" font-size="7" fill="#FFCC00">★</text><text x="326" y="8" font-size="5.5" fill="#666" font-family="system-ui">Lab Mgr</text>
+          </g>
         </svg>
       </div>
       <div class="map-caption">Verna and Peter Dauterive Hall · VPD Lower Level · Not to scale</div>
@@ -480,23 +698,150 @@
   </div>
 </section>
 
-<section class="suite-section">
+<section class="suite-section" id="suites">
   <div class="section-inner">
     <div class="section-label">Lab Spaces</div>
     <h2 class="section-title">Which Suite Do I Go To?</h2>
+
+    <!-- Card access callout -->
+    <div style="max-width:700px; margin:0 auto 36px auto; padding:18px 24px; background:linear-gradient(135deg,#FFF8E1,#FFF3CD); border:1px solid #F0E0A0; border-left:4px solid #D4A017; border-radius:12px; display:flex; align-items:flex-start; gap:14px;">
+      <span style="font-size:1.4rem; flex-shrink:0; margin-top:2px;">🔒</span>
+      <div>
+        <strong style="color:#7D6308; font-size:0.95rem;">Card-Access Entry Only</strong>
+        <p style="margin:6px 0 0 0; font-size:0.88rem; color:#666; line-height:1.55;">All lab suites require researcher card access. When you arrive at the lower level, wait by the door of your assigned suite — a Research Assistant will come out to greet you and let you in. If no one comes after a minute or two, ring the doorbell or call us at <a href="tel:2138219752" style="color:#990000; font-weight:600;">213.821.9752</a>.</p>
+      </div>
+    </div>
+
     <div class="suite-grid">
-      <div class="suite-card"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag">BUAD 307 · Marketing Fundamentals</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 30 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 112 32 L 60 42" stroke="#9A7B0A" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aGc)"/><rect x="10" y="35" width="50" height="18" fill="#9A7B0A" rx="4"/><text x="35" y="47" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="120" y="18" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">← Turn left</text><defs><marker id="aGc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#9A7B0A"/></marker></defs></svg></div></div></div>
-      <div class="suite-card"><div class="suite-card-accent cardinal-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — MOR Suite</h3><div class="suite-tag">BUAD 304 / 497 · Management &amp; Organization</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Enter and check in at reception. You'll be guided to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 28 L 170 18" stroke="#990000" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aCc)"/><rect x="170" y="8" width="55" height="18" fill="#990000" rx="4"/><text x="197" y="20" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Turn right →</text><defs><marker id="aCc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#990000"/></marker></defs></svg></div></div></div>
-      <div class="suite-card"><div class="suite-card-accent purple-accent"></div><div class="suite-card-inner"><div class="suite-icon purple-bg">👁️</div><h3>LL-110 — Eye-Tracking Suite</h3><div class="suite-tag">Specialized Research Equipment</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — TOBII eye-tracking, BIOPAC psychophysiology, and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔑</span><span>Entry by appointment only. Lab Manager office (LL-110-A) is also here.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 26 L 185 14" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aPc)"/><rect x="170" y="4" width="55" height="18" fill="#7B1FA2" rx="4"/><text x="197" y="16" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Far right →→</text><defs><marker id="aPc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#7B1FA2"/></marker></defs></svg></div></div></div>
+      <div class="suite-card" id="ll102"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag">BUAD 307 (MKT)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 30 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 112 32 L 60 42" stroke="#9A7B0A" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aGc)"/><rect x="10" y="35" width="50" height="18" fill="#9A7B0A" rx="4"/><text x="35" y="47" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="120" y="18" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">← Turn left</text><defs><marker id="aGc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#9A7B0A"/></marker></defs></svg></div></div></div>
+      <div class="suite-card" id="ll112"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Wait by the suite door. An RA will come greet you and guide you to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 28 L 170 18" stroke="#0070C0" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aCc)"/><rect x="170" y="8" width="55" height="18" fill="#0070C0" rx="4"/><text x="197" y="20" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Turn right →</text><defs><marker id="aCc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0070C0"/></marker></defs></svg></div></div></div>
+      <div class="suite-card"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">🔬</div><h3>LL-110 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — multi-room suite with specialized research equipment and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Wait by the suite door. An RA will come greet you and guide you to your room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 26 L 185 14" stroke="#0070C0" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aPc)"/><rect x="170" y="4" width="55" height="18" fill="#0070C0" rx="4"/><text x="197" y="16" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Far right →→</text><defs><marker id="aPc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0070C0"/></marker></defs></svg></div></div></div>
     </div>
   </div>
 </section>
 
-<div class="contact-strip">
+<!-- ═══ FINDING THE LAB MANAGER ═══ -->
+<section id="labmanager" style="padding:64px 32px; background:linear-gradient(180deg, #faf9f7, #f5f3f0);">
+  <div style="max-width:700px; margin:0 auto;">
+    <div class="section-label">Lab Manager</div>
+    <h2 class="section-title">Looking for the Lab Manager?</h2>
+    <div style="background:white; border-radius:20px; border:1px solid #e8e4de; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.04);">
+      <div style="padding:28px 32px; display:flex; gap:20px; align-items:flex-start;">
+        <div style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#990000,#7a0000); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <span style="font-size:1.5rem;">👤</span>
+        </div>
+        <div style="flex:1;">
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; color:#1a1a1a; margin-bottom:4px;">Lab Manager Office — LL-110-A</h3>
+          <p style="font-size:0.88rem; color:#888; margin-bottom:16px;">Located inside the LL-110 suite, first door on the right</p>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:#faf9f7; border-radius:10px;">
+              <span style="font-size:1.1rem;">📍</span>
+              <span style="font-size:0.88rem; color:#555; line-height:1.5;">From the lower level corridor, head to the <strong>far right</strong>. Enter LL-110 — the Lab Manager's office (LL-110-A) is the <strong>first room on your right</strong> just past the entrance.</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:#faf9f7; border-radius:10px;">
+              <span style="font-size:1.1rem;">🔒</span>
+              <span style="font-size:0.88rem; color:#555; line-height:1.5;">LL-110 requires card access and is by appointment only. Call ahead or email to arrange a visit.</span>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:12px; padding:12px 16px; background:#FFF8E1; border-radius:10px; border:1px solid #F0E0A0;">
+              <span style="font-size:1.1rem;">📞</span>
+              <span style="font-size:0.88rem; color:#555; line-height:1.5;"><strong>Best way to reach us:</strong><br>Call <a href="tel:2138219752" style="color:#990000; font-weight:600;">213.821.9752</a> or email <a href="mailto:behaviorallab@marshall.usc.edu" style="color:#990000; font-weight:600;">behaviorallab@marshall.usc.edu</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini wayfinding diagram -->
+      <div style="padding:16px 32px 24px 32px; border-top:1px solid #f0ece6;">
+        <svg viewBox="0 0 400 55" style="width:100%; max-width:400px; height:auto; display:block; margin:0 auto;">
+          <rect x="0" y="5" width="400" height="45" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/>
+          <!-- Corridor -->
+          <rect x="10" y="20" width="380" height="14" fill="#f0ece6" rx="2"/>
+          <!-- You indicator -->
+          <circle cx="40" cy="27" r="5" fill="#999" opacity="0.15"><animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.15;0.04;0.15" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="40" cy="27" r="3" fill="#999"/>
+          <text x="40" y="17" text-anchor="middle" font-size="5" fill="#999" font-family="system-ui">You</text>
+          <!-- Path -->
+          <path d="M 48 27 L 310 27" stroke="#990000" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#aLM)"/>
+          <!-- LL-110 suite -->
+          <rect x="300" y="7" width="90" height="20" fill="#0070C0" rx="4" opacity="0.85"/>
+          <text x="335" y="20" text-anchor="middle" font-size="6" fill="#fff" font-weight="600" font-family="system-ui">LL-110</text>
+          <!-- 110-A nested in right corner -->
+          <rect x="360" y="10" width="27" height="14" fill="#990000" rx="2"/>
+          <text x="373.5" y="19" text-anchor="middle" font-size="4.5" fill="#fff" font-weight="700" font-family="system-ui">110-A</text>
+          <text x="373.5" y="7" font-size="5" fill="#FFCC00" text-anchor="middle">★</text>
+          <text x="345" y="40" text-anchor="middle" font-size="4.5" fill="#990000" font-weight="600" font-family="system-ui">Lab Mgr Office</text>
+          <defs><marker id="aLM" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#990000"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="contact-strip" id="contact">
   <h2>Need Help Finding Us?</h2>
   <div class="contact-details">
     <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2138219752">213.821.9752</a></div>
     <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Verna+and+Peter+Dauterive+Hall+635+Downey+Way+Los+Angeles+CA+90089" target="_blank">635 Downey Way, Los Angeles, CA 90089</a></div>
-    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="/cdn-cgi/l/email-protection#afcdcac7ced9c6c0ddcec3c3cecdefc2cedddcc7cec3c381dadccc81cacbda"><span class="__cf_email__" data-cfemail="c7a5a2afa6b1aea8b5a6ababa6a587aaa6b5b4afa6ababe9b2b4a4e9a2a3b2">[email&#160;protected]</span></a></div>
+    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:behaviorallab@marshall.usc.edu">behaviorallab@marshall.usc.edu</a></div>
   </div>
-<
+</div>
+
+<footer style="text-align:center; padding:32px 24px; background:#1a1a1a; color:rgba(255,255,255,0.4); font-size:0.8rem; line-height:1.6;">
+  <p>Marshall Behavioral Research Lab &middot; USC Marshall School of Business</p>
+  <p>Verna &amp; Peter Dauterive Hall &middot; 635 Downey Way, Los Angeles, CA 90089</p>
+</footer>
+
+<script>
+(function() {
+  var nav = document.getElementById('stickyNav');
+  var floatCall = document.querySelector('.float-call');
+  var links = nav.querySelectorAll('a[href^="#"]');
+  var sectionIds = [];
+  links.forEach(function(a) { sectionIds.push(a.getAttribute('href').slice(1)); });
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY;
+        var hero = document.querySelector('.hero');
+        var heroH = hero ? hero.offsetHeight : 400;
+        var pastHero = scrollY > heroH * 0.7;
+
+        if (pastHero) {
+          nav.classList.add('visible');
+          if (floatCall) floatCall.style.opacity = '1';
+          if (floatCall) floatCall.style.pointerEvents = 'auto';
+        } else {
+          nav.classList.remove('visible');
+          if (floatCall) floatCall.style.opacity = '0';
+          if (floatCall) floatCall.style.pointerEvents = 'none';
+        }
+
+        var current = '';
+        for (var i = sections.length - 1; i >= 0; i--) {
+          if (sections[i].getBoundingClientRect().top <= 80) {
+            current = sections[i].id;
+            break;
+          }
+        }
+        links.forEach(function(a) {
+          if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+          } else {
+            a.classList.remove('active');
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
