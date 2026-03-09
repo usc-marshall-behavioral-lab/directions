@@ -136,7 +136,7 @@
   /* ─── SMARTPHONE ─── */
   @media (max-width: 540px) {
     /* Hero */
-    .hero { min-height: 90vh; padding: 48px 20px; }
+    .hero { min-height: 85vh; padding: 40px 20px; }
     .hero-badge { font-size: 0.65rem; padding: 6px 14px; letter-spacing: 1.5px; margin-bottom: 28px; }
     .hero-title { font-size: 2.8rem; margin-bottom: 16px; }
     .hero-title span { font-size: 0.4em; letter-spacing: 3px; margin-top: 12px; }
@@ -147,7 +147,7 @@
     .scroll-cue { font-size: 0.65rem; }
 
     /* Gallery */
-    .gallery-section { padding: 48px 16px; }
+    .gallery-section { padding: 40px 16px; }
     .gallery-section .section-title { font-size: 1.5rem; margin-bottom: 10px; }
     .gallery-subtitle { font-size: 0.85rem; margin-bottom: 32px; }
     .photo-grid { grid-template-columns: 1fr !important; gap: 14px; }
@@ -156,7 +156,8 @@
     .photo-card .photo-sub { font-size: 0.72rem; }
 
     /* Journey / Wayfinding */
-    .journey-section { padding: 48px 16px; }
+    .journey-section { padding: 40px 16px; }
+    .journey-section .section-title { margin-bottom: 20px; }
     .journey-inner { max-width: 100%; }
     .journey-path { padding-left: 0; }
     .journey-path::before { display: none; }
@@ -179,16 +180,17 @@
 
     /* Section labels */
     .section-label { font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 8px; }
-    .section-title { font-size: 1.5rem; margin-bottom: 32px; }
+    .section-title { font-size: 1.5rem; margin-bottom: 20px; }
 
     /* Floor Map */
-    .map-section { padding: 48px 16px; }
+    .map-section { padding: 40px 16px; }
     .floor-map-container { padding: 14px; border-radius: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .map-caption { font-size: 0.75rem; margin-top: 10px; }
     .map-scroll-hint { display: block; }
 
     /* Suite Cards */
-    .suite-section { padding: 48px 16px; }
+    .suite-section { padding: 36px 16px; }
+    .suite-section .section-title { margin-bottom: 16px; }
     .suite-grid { grid-template-columns: 1fr; gap: 16px; }
     .suite-card { border-radius: 16px; }
     .suite-card-inner { padding: 20px; }
@@ -205,16 +207,16 @@
     .contact-item svg { width: 16px; height: 16px; }
 
     /* Lab Manager section */
-    #labmanager { padding: 40px 16px !important; }
+    #labmanager { padding: 36px 16px !important; }
     #labmanager > div { max-width: 100% !important; }
-    #labmanager .section-title { font-size: 1.5rem; }
+    #labmanager .section-title { font-size: 1.5rem; margin-bottom: 16px; }
     #labmanager div[style*="padding:28px"] { padding: 20px 16px !important; flex-direction: column !important; }
     #labmanager div[style*="padding:16px 32px"] { padding: 12px 16px 20px 16px !important; }
     #labmanager div[style*="width:56px"] { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
     #labmanager h3 { font-size: 1.05rem !important; }
 
     /* Card access callout mobile */
-    .suite-section div[style*="max-width:700px"] { margin-left: 0 !important; margin-right: 0 !important; padding: 14px 16px !important; }
+    .suite-section div[style*="max-width:700px"] { margin-left: 0 !important; margin-right: 0 !important; padding: 14px 16px !important; margin-bottom: 20px !important; }
 
     /* Contact email wrapping */
     .contact-item a { word-break: break-all; }
@@ -264,7 +266,7 @@
   }
   .sticky-nav-inner::-webkit-scrollbar { display: none; }
   .sticky-nav a {
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
     font-size: 0.78rem;
     font-weight: 500;
@@ -274,8 +276,8 @@
     transition: all 0.2s ease;
     letter-spacing: 0.3px;
   }
-  .sticky-nav a:hover { color: white; background: rgba(255,255,255,0.08); }
-  .sticky-nav a.active { color: #FFCC00; background: rgba(255,204,0,0.1); }
+  .sticky-nav a:hover { color: white; background: rgba(255,255,255,0.12); }
+  .sticky-nav a.active { color: #FFCC00; background: rgba(255,204,0,0.15); font-weight: 600; }
   .sticky-nav-logo {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -287,9 +289,9 @@
   }
 
   @media (max-width: 540px) {
-    .sticky-nav a { font-size: 0.72rem; padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; }
+    .sticky-nav a { font-size: 0.72rem; padding: 8px 14px; min-height: 44px; display: inline-flex; align-items: center; color: rgba(255,255,255,0.85); }
     .sticky-nav-logo { display: none; }
-    .sticky-nav-inner { gap: 2px; }
+    .sticky-nav-inner { gap: 2px; height: 52px; }
   }
 
   /* Floating call button for mobile */
@@ -319,7 +321,7 @@
   }
 
   /* Scroll offset for anchors */
-  [id] { scroll-margin-top: 56px; }
+  [id] { scroll-margin-top: 60px; }
 
 </style>
 </head>
@@ -369,7 +371,7 @@
   <div class="section-inner">
     <div class="section-label">The Building</div>
     <h2 class="section-title">Dauterive Hall (VPD)</h2>
-    <p class="gallery-subtitle">A modern 6-story, 110,000 sq ft research building on USC's University Park Campus. Brick masonry exterior, Italian Romanesque style. The lab is on the Lower Level — below the ground floor.</p>
+    <p class="gallery-subtitle">A 6-story research building on USC's University Park Campus. Brick exterior, Italian Romanesque style. The behavioral research lab is on the Lower Level — one floor below the ground floor entrance.</p>
     <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="photo-card">
         <img src="https://localist-images.azureedge.net/photos/395441/big_square@2x/8c825e2358620e7383991148c566a86edf33ea10.jpg" alt="Dauterive Hall north entrance" loading="lazy">
@@ -385,7 +387,7 @@
       </div>
       <div class="photo-card">
         <img src="https://www.hksinc.com/wp-content/uploads/2018/10/USC_VernaPeterDauteriveHall_01.jpg" alt="Dauterive Hall interior atrium" loading="lazy">
-        <div class="photo-overlay"><div class="photo-caption">Interior — 6-Story Atrium</div><div class="photo-sub">Enter here, then take stairs or elevator down to LL</div></div>
+        <div class="photo-overlay"><div class="photo-caption">Interior — Ground Floor Atrium</div><div class="photo-sub">Look for the stairs or elevator to go down to the Lower Level</div></div>
       </div>
     </div>
   </div>
@@ -401,7 +403,7 @@
         <div class="journey-card">
           <div class="journey-card-body">
             <h3>1 — Locate Dauterive Hall on Campus</h3>
-            <p>Head to <strong>635 Downey Way</strong> on USC's University Park Campus. VPD sits between <strong>Trousdale Parkway</strong> to the west and <strong>Pardee Way</strong> to the east. The <strong>south entrance</strong> faces USC Gould School of Law; the <strong>north entrance</strong> faces USC Price School of Public Policy and Childs Way. Exposition Blvd runs along the south edge of campus nearby.</p>
+            <p>Head to <strong>635 Downey Way</strong> on USC's University Park Campus. Dauterive Hall (VPD) is the brick building between <strong>Trousdale Parkway</strong> and <strong>Pardee Way</strong>. If you're coming from the south, you'll see it just past USC Gould School of Law. From the north, look for it across from USC Price School on Childs Way.</p>
             <div class="tip-badge">🅿️ Nearest parking: Parking Structure X (via Pardee Way entrance)</div>
             <div class="map-links">
               <a href="https://www.google.com/maps/search/?api=1&query=Verna+and+Peter+Dauterive+Hall+635+Downey+Way+Los+Angeles+CA+90089" target="_blank" class="map-link"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#EA4335"/></svg>Google Maps</a>
@@ -488,20 +490,49 @@
         <div class="journey-card">
           <div class="journey-card-body">
             <h3>2 — Enter the Building</h3>
-            <p>Walk into Dauterive Hall through either entrance — the <strong>south entrance</strong> (facing the Law School) or the <strong>north entrance</strong> (facing Price School / Childs Way). You'll be on the <strong>first floor</strong>. The lab is below you on the Lower Level.</p>
+            <p>Walk in through either entrance. Once inside, you'll be in the <strong>ground floor atrium</strong> — a tall, open lobby. The lab is one level below you on the <strong>Lower Level (LL)</strong>. Look for the stairs or elevator.</p>
           </div>
           <div class="journey-visual">
-            <svg viewBox="0 0 480 100">
-              <rect x="60" y="10" width="360" height="80" fill="#F5F0E8" stroke="#D4CFC5" stroke-width="1.5" rx="4"/>
-              <line x1="60" y1="50" x2="420" y2="50" stroke="#D4CFC5" stroke-width="1"/>
-              <text x="240" y="35" text-anchor="middle" font-size="10" fill="#888" font-family="system-ui" font-weight="600">1F — GROUND FLOOR</text>
-              <text x="240" y="42" text-anchor="middle" font-size="7" fill="#AAA" font-family="system-ui">You enter here</text>
-              <rect x="220" y="8" width="40" height="8" fill="#FFCC00" rx="2"/><text x="240" y="14" text-anchor="middle" font-size="5" fill="#7D6308" font-family="system-ui" font-weight="700">ENTER</text>
-              <rect x="100" y="56" width="280" height="28" fill="#990000" rx="4" opacity="0.12"/>
-              <rect x="100" y="56" width="280" height="28" fill="none" stroke="#990000" stroke-width="1.5" rx="4"/>
-              <text x="240" y="73" text-anchor="middle" font-size="10" fill="#990000" font-family="system-ui" font-weight="700">LL — THE LAB IS HERE ↓</text>
-              <path d="M 240 45 L 240 55" stroke="#990000" stroke-width="2.5" marker-end="url(#aR2)"/>
-              <defs><marker id="aR2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#990000"/></marker></defs>
+            <svg viewBox="0 0 480 120">
+              <!-- Building shell -->
+              <rect x="80" y="5" width="320" height="110" fill="#F5F0E8" stroke="#D4CFC5" stroke-width="1.5" rx="3"/>
+
+              <!-- Ground floor (1F) -->
+              <rect x="80" y="5" width="320" height="50" fill="#EDEBE6" stroke="#D4CFC5" stroke-width="1" rx="3"/>
+              <text x="260" y="30" text-anchor="middle" font-size="11" fill="#888" font-family="system-ui" font-weight="700">GROUND FLOOR</text>
+              <text x="260" y="42" text-anchor="middle" font-size="7" fill="#aaa" font-family="system-ui">You enter here</text>
+
+              <!-- Door on ground floor -->
+              <rect x="127" y="5" width="26" height="12" fill="#FFCC00" stroke="#D4A017" stroke-width="1" rx="2"/>
+              <text x="140" y="13" text-anchor="middle" font-size="5.5" fill="#7D6308" font-family="system-ui" font-weight="700">DOOR</text>
+
+              <!-- Person entering -->
+              <circle cx="110" cy="22" r="5" fill="#990000" opacity="0.7"/>
+              <line x1="110" y1="27" x2="110" y2="38" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="110" y1="38" x2="105" y2="46" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="110" y1="38" x2="115" y2="46" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="110" y1="31" x2="104" y2="36" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="110" y1="31" x2="116" y2="28" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <text x="110" y="14" text-anchor="middle" font-size="6" fill="#990000" font-weight="600" font-family="system-ui">YOU</text>
+
+              <!-- Floor divider -->
+              <line x1="80" y1="55" x2="400" y2="55" stroke="#C5BFB5" stroke-width="2"/>
+
+              <!-- Lower Level (LL) -->
+              <rect x="120" y="62" width="240" height="35" fill="#990000" rx="5" opacity="0.1"/>
+              <rect x="120" y="62" width="240" height="35" fill="none" stroke="#990000" stroke-width="2" rx="5"/>
+              <text x="240" y="80" text-anchor="middle" font-size="12" fill="#990000" font-family="system-ui" font-weight="800">LOWER LEVEL</text>
+              <text x="240" y="92" text-anchor="middle" font-size="7" fill="#990000" font-family="system-ui" opacity="0.6">The lab is down here</text>
+
+              <!-- Arrow from 1F down to LL -->
+              <path d="M 240 48 L 240 60" stroke="#990000" stroke-width="3" marker-end="url(#aR2)"/>
+              <text x="260" y="55" font-size="7" fill="#990000" font-weight="600" font-family="system-ui">↓ Go down 1 floor</text>
+
+              <!-- Floor labels on left side -->
+              <text x="72" y="32" text-anchor="end" font-size="9" fill="#aaa" font-family="system-ui" font-weight="700">1F</text>
+              <text x="72" y="82" text-anchor="end" font-size="9" fill="#990000" font-family="system-ui" font-weight="700">LL</text>
+
+              <defs><marker id="aR2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#990000"/></marker></defs>
             </svg>
           </div>
         </div>
@@ -511,32 +542,58 @@
         <div class="journey-marker gold"><svg viewBox="0 0 24 24"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg></div>
         <div class="journey-card">
           <div class="journey-card-body">
-            <h3>3 — Take Stairs or Elevator Down</h3>
-            <p>Head to the <strong>central staircase</strong> or the <strong>elevator</strong> and go down one level to the Lower Level (LL). When you exit, you'll be in the lower level common area.</p>
+            <h3>3 — Take Stairs or Elevator Down One Floor</h3>
+            <p>Use the <strong>central staircase</strong> or the <strong>elevator</strong> to go down one level. When you step out, you'll be in the <strong>lower level corridor</strong> — a long hallway with lab suite doors on either side.</p>
             <div class="tip-badge">♿ Elevator available for accessibility</div>
           </div>
           <div class="journey-visual">
             <svg viewBox="0 0 480 130">
-              <g transform="translate(100, 10)">
-                <rect x="0" y="0" width="120" height="15" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1" rx="2"/><text x="60" y="10" text-anchor="middle" font-size="7" fill="#888" font-family="system-ui" font-weight="600">1F LOBBY</text>
-                <rect x="15" y="18" width="105" height="15" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1" rx="2"/>
-                <rect x="30" y="36" width="90" height="15" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1" rx="2"/>
-                <rect x="45" y="54" width="75" height="15" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1" rx="2"/>
-                <rect x="60" y="72" width="60" height="15" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1" rx="2"/>
-                <rect x="60" y="90" width="120" height="20" fill="#990000" stroke="#7A0000" stroke-width="1.5" rx="3" opacity="0.15"/>
-                <rect x="60" y="90" width="120" height="20" fill="none" stroke="#990000" stroke-width="1.5" rx="3"/>
-                <text x="120" y="103" text-anchor="middle" font-size="8" fill="#990000" font-family="system-ui" font-weight="700">LOWER LEVEL</text>
-                <circle cx="60" cy="4" r="6" fill="#990000" opacity="0.2"/>
-                <path d="M 65 12 C 75 30, 85 50, 90 68 L 95 85" stroke="#990000" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
-                <circle cx="95" cy="85" r="5" fill="#990000" opacity="0.3"><animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/></circle>
+              <!-- STAIRS — side profile -->
+              <g transform="translate(60, 8)">
+                <!-- "1F" label at top -->
+                <text x="10" y="10" font-size="8" fill="#888" font-family="system-ui" font-weight="700">1F</text>
+                <text x="10" y="20" font-size="6" fill="#bbb" font-family="system-ui">Ground Floor</text>
+
+                <!-- Stair steps — descending left to right -->
+                <path d="M 60,12 L 60,28 L 85,28 L 85,44 L 110,44 L 110,60 L 135,60 L 135,76 L 160,76 L 160,92 L 185,92 L 185,108 L 60,108 Z" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1.5" stroke-linejoin="round"/>
+                <!-- Step treads (darker lines) -->
+                <line x1="60" y1="28" x2="85" y2="28" stroke="#C5BFB5" stroke-width="1.5"/>
+                <line x1="85" y1="44" x2="110" y2="44" stroke="#C5BFB5" stroke-width="1.5"/>
+                <line x1="110" y1="60" x2="135" y2="60" stroke="#C5BFB5" stroke-width="1.5"/>
+                <line x1="135" y1="76" x2="160" y2="76" stroke="#C5BFB5" stroke-width="1.5"/>
+                <line x1="160" y1="92" x2="185" y2="92" stroke="#C5BFB5" stroke-width="1.5"/>
+
+                <!-- Person walking down -->
+                <circle cx="95" cy="38" r="4" fill="#990000" opacity="0.6"/>
+                <line x1="95" y1="42" x2="95" y2="52" stroke="#990000" stroke-width="1.5" opacity="0.6"/>
+                <line x1="95" y1="52" x2="90" y2="58" stroke="#990000" stroke-width="1.5" opacity="0.6"/>
+                <line x1="95" y1="52" x2="100" y2="58" stroke="#990000" stroke-width="1.5" opacity="0.6"/>
+                <line x1="95" y1="46" x2="89" y2="50" stroke="#990000" stroke-width="1.5" opacity="0.6"/>
+                <line x1="95" y1="46" x2="101" y2="44" stroke="#990000" stroke-width="1.5" opacity="0.6"/>
+
+                <!-- Curved arrow showing direction -->
+                <path d="M 70 18 C 90 20, 150 50, 175 90" stroke="#990000" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity="0.4"/>
+                <polygon points="175,90 178,82 170,85" fill="#990000" opacity="0.4"/>
+
+                <!-- "LL" label at bottom -->
+                <rect x="60" y="110" width="125" height="18" fill="#990000" rx="3" opacity="0.12"/>
+                <rect x="60" y="110" width="125" height="18" fill="none" stroke="#990000" stroke-width="1.5" rx="3"/>
+                <text x="122" y="122" text-anchor="middle" font-size="8" fill="#990000" font-family="system-ui" font-weight="700">LOWER LEVEL</text>
               </g>
-              <text x="280" y="65" text-anchor="middle" font-size="10" fill="#CCC" font-family="system-ui" font-weight="600">OR</text>
-              <g transform="translate(310, 20)">
-                <rect x="0" y="0" width="80" height="90" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1.5" rx="4"/>
-                <rect x="15" y="10" width="50" height="35" fill="#F5F0E8" stroke="#D4CFC5" stroke-width="1" rx="2"/>
-                <text x="40" y="30" text-anchor="middle" font-size="20" fill="#999" font-family="system-ui">↕</text>
-                <text x="40" y="62" text-anchor="middle" font-size="8" fill="#888" font-family="system-ui" font-weight="600">ELEVATOR</text>
-                <text x="40" y="74" text-anchor="middle" font-size="7" fill="#990000" font-family="system-ui" font-weight="600">→ LL</text>
+
+              <text x="280" y="70" text-anchor="middle" font-size="10" fill="#CCC" font-family="system-ui" font-weight="600">OR</text>
+
+              <!-- ELEVATOR -->
+              <g transform="translate(310, 15)">
+                <rect x="0" y="0" width="90" height="100" fill="#E8E4DE" stroke="#D4CFC5" stroke-width="1.5" rx="5"/>
+                <!-- Elevator doors -->
+                <rect x="18" y="12" width="24" height="50" fill="#F5F0E8" stroke="#D4CFC5" stroke-width="1" rx="1"/>
+                <rect x="48" y="12" width="24" height="50" fill="#F5F0E8" stroke="#D4CFC5" stroke-width="1" rx="1"/>
+                <line x1="42" y1="12" x2="42" y2="62" stroke="#D4CFC5" stroke-width="1.5"/>
+                <!-- Down arrow -->
+                <polygon points="45,32 52,22 38,22" fill="#990000" opacity="0.5"/>
+                <text x="45" y="72" text-anchor="middle" font-size="8" fill="#888" font-family="system-ui" font-weight="600">ELEVATOR</text>
+                <text x="45" y="84" text-anchor="middle" font-size="7" fill="#990000" font-family="system-ui" font-weight="700">Press LL ↓</text>
               </g>
             </svg>
           </div>
@@ -548,42 +605,43 @@
         <div class="journey-card">
           <div class="journey-card-body">
             <h3>4 — Find Your Assigned Suite</h3>
-            <p>The lab has three suites along the lower level. Look for the <strong>door signs</strong> and check in with the research assistant. Your SONA confirmation email tells you which suite to go to.</p>
-            <p><strong>BUAD 307 (MKT)</strong> → <strong style="color:#9A7B0A;">LL-102</strong> Computer Lab<br><strong>BUAD 304 / 497 (MOR)</strong> → <strong style="color:#0070C0;">LL-112</strong> or <strong style="color:#0070C0;">LL-110</strong> Lab Suite</p>
+            <p>Check your <strong>SONA confirmation email</strong> — it tells you which suite to go to. Each door has a sign with the room number. If you're unsure, just call us.</p>
+            <p><strong>BUAD 307 (MKT)</strong> → <strong style="color:#9A7B0A;">LL-102</strong> Computer Lab<br><strong>BUAD 304 / 497 (MOR)</strong> → <strong style="color:#0070C0;">LL-112</strong>, <strong style="color:#0070C0;">LL-110</strong>, or <strong style="color:#9A7B0A;">LL-102</strong> — check your confirmation</p>
           </div>
           <div class="journey-visual" style="padding:16px 12px;">
-            <svg viewBox="0 0 480 140">
+            <svg viewBox="0 0 480 120">
               <!-- Corridor bar -->
-              <rect x="30" y="62" width="420" height="16" fill="#e8e4de" rx="8"/>
-              <text x="240" y="136" text-anchor="middle" font-size="6.5" fill="#bbb" font-family="system-ui" font-weight="500" letter-spacing="2">LOWER LEVEL CORRIDOR</text>
+              <rect x="20" y="68" width="440" height="14" fill="#e8e4de" rx="7"/>
+              <text x="240" y="110" text-anchor="middle" font-size="6.5" fill="#bbb" font-family="system-ui" font-weight="500" letter-spacing="2">LOWER LEVEL CORRIDOR</text>
 
-              <!-- You Are Here — center -->
-              <circle cx="240" cy="70" r="14" fill="#990000" opacity="0.08"><animate attributeName="r" values="14;24;14" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.02;0.1" dur="2.5s" repeatCount="indefinite"/></circle>
-              <circle cx="240" cy="70" r="8" fill="white" stroke="#990000" stroke-width="2.5"/>
-              <circle cx="240" cy="70" r="3.5" fill="#990000"/>
-              <text x="240" y="110" text-anchor="middle" font-size="9" fill="#990000" font-family="system-ui" font-weight="700" letter-spacing="0.5">YOU ARE HERE</text>
+              <!-- Person at center -->
+              <circle cx="240" cy="55" r="5" fill="#990000" opacity="0.7"/>
+              <line x1="240" y1="60" x2="240" y2="70" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="240" y1="66" x2="235" y2="62" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <line x1="240" y1="66" x2="245" y2="62" stroke="#990000" stroke-width="1.5" opacity="0.7"/>
+              <text x="240" y="92" text-anchor="middle" font-size="8" fill="#990000" font-family="system-ui" font-weight="700">YOU ARE HERE</text>
 
               <!-- LEFT ARROW — LL-102 -->
-              <line x1="218" y1="70" x2="130" y2="70" stroke="#9A7B0A" stroke-width="3" stroke-dasharray="8,5"/>
-              <polygon points="130,64 118,70 130,76" fill="#9A7B0A"/>
-              <rect x="18" y="78" width="95" height="38" fill="#9A7B0A" rx="8" filter="url(#shadow4)"/>
-              <text x="65" y="96" text-anchor="middle" font-size="13" fill="#fff" font-family="system-ui" font-weight="700">LL-102</text>
-              <text x="65" y="108" text-anchor="middle" font-size="7" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
-              <text x="65" y="130" text-anchor="middle" font-size="7" fill="#9A7B0A" font-family="system-ui" font-weight="600">← LEFT</text>
+              <line x1="225" y1="75" x2="130" y2="75" stroke="#9A7B0A" stroke-width="3" stroke-dasharray="8,5"/>
+              <polygon points="130,70 118,75 130,80" fill="#9A7B0A"/>
+              <rect x="20" y="14" width="95" height="42" fill="#9A7B0A" rx="8" filter="url(#shadow4)"/>
+              <text x="67" y="34" text-anchor="middle" font-size="14" fill="#fff" font-family="system-ui" font-weight="700">LL-102</text>
+              <text x="67" y="47" text-anchor="middle" font-size="7" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
+              <text x="67" y="8" text-anchor="middle" font-size="7" fill="#9A7B0A" font-family="system-ui" font-weight="600">← LEFT</text>
 
               <!-- RIGHT ARROW — LL-112 & LL-110 -->
-              <line x1="262" y1="70" x2="340" y2="70" stroke="#0070C0" stroke-width="3" stroke-dasharray="8,5"/>
-              <polygon points="340,64 352,70 340,76" fill="#0070C0"/>
-              <rect x="355" y="30" width="56" height="38" fill="#0070C0" rx="7" filter="url(#shadow4)"/>
-              <text x="383" y="48" text-anchor="middle" font-size="12" fill="#fff" font-family="system-ui" font-weight="700">LL-112</text>
-              <text x="383" y="60" text-anchor="middle" font-size="6" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
-              <rect x="418" y="30" width="56" height="38" fill="#0070C0" rx="7" filter="url(#shadow4)"/>
-              <text x="446" y="48" text-anchor="middle" font-size="12" fill="#fff" font-family="system-ui" font-weight="700">LL-110</text>
-              <text x="446" y="60" text-anchor="middle" font-size="6" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
-              <text x="415" y="22" text-anchor="middle" font-size="7" fill="#0070C0" font-family="system-ui" font-weight="600">RIGHT →</text>
+              <line x1="255" y1="75" x2="340" y2="75" stroke="#0070C0" stroke-width="3" stroke-dasharray="8,5"/>
+              <polygon points="340,70 352,75 340,80" fill="#0070C0"/>
+              <rect x="355" y="14" width="56" height="42" fill="#0070C0" rx="8" filter="url(#shadow4)"/>
+              <text x="383" y="34" text-anchor="middle" font-size="13" fill="#fff" font-family="system-ui" font-weight="700">LL-112</text>
+              <text x="383" y="47" text-anchor="middle" font-size="6.5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+              <rect x="418" y="14" width="56" height="42" fill="#0070C0" rx="8" filter="url(#shadow4)"/>
+              <text x="446" y="34" text-anchor="middle" font-size="13" fill="#fff" font-family="system-ui" font-weight="700">LL-110</text>
+              <text x="446" y="47" text-anchor="middle" font-size="6.5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+              <text x="415" y="8" text-anchor="middle" font-size="7" fill="#0070C0" font-family="system-ui" font-weight="600">RIGHT →</text>
 
               <!-- Divider between suites -->
-              <line x1="414" y1="34" x2="414" y2="64" stroke="#005A9E" stroke-width="0.5" opacity="0.4"/>
+              <line x1="414" y1="18" x2="414" y2="52" stroke="#005A9E" stroke-width="0.5" opacity="0.4"/>
 
               <defs>
                 <filter id="shadow4" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
@@ -701,21 +759,21 @@
 <section class="suite-section" id="suites">
   <div class="section-inner">
     <div class="section-label">Lab Spaces</div>
-    <h2 class="section-title">Which Suite Do I Go To?</h2>
+    <h2 class="section-title">Which Suite Am I Going To?</h2>
 
     <!-- Card access callout -->
     <div style="max-width:700px; margin:0 auto 36px auto; padding:18px 24px; background:linear-gradient(135deg,#FFF8E1,#FFF3CD); border:1px solid #F0E0A0; border-left:4px solid #D4A017; border-radius:12px; display:flex; align-items:flex-start; gap:14px;">
       <span style="font-size:1.4rem; flex-shrink:0; margin-top:2px;">🔒</span>
       <div>
         <strong style="color:#7D6308; font-size:0.95rem;">Card-Access Entry Only</strong>
-        <p style="margin:6px 0 0 0; font-size:0.88rem; color:#666; line-height:1.55;">All lab suites require researcher card access. When you arrive at the lower level, wait by the door of your assigned suite — a Research Assistant will come out to greet you and let you in. If no one comes after a minute or two, ring the doorbell or call us at <a href="tel:2138219752" style="color:#990000; font-weight:600;">213.821.9752</a>.</p>
+        <p style="margin:6px 0 0 0; font-size:0.88rem; color:#666; line-height:1.55;">All lab suites are locked and require card access. When you arrive, find the door for your assigned suite and <strong>ring the doorbell</strong>. A Research Assistant will come out to let you in. If no one answers after a minute or two, call us at <a href="tel:2138219752" style="color:#990000; font-weight:600;">213.821.9752</a>.</p>
       </div>
     </div>
 
     <div class="suite-grid">
-      <div class="suite-card" id="ll102"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag">BUAD 307 (MKT)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 30 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 112 32 L 60 42" stroke="#9A7B0A" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aGc)"/><rect x="10" y="35" width="50" height="18" fill="#9A7B0A" rx="4"/><text x="35" y="47" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="120" y="18" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">← Turn left</text><defs><marker id="aGc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#9A7B0A"/></marker></defs></svg></div></div></div>
-      <div class="suite-card" id="ll112"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Wait by the suite door. An RA will come greet you and guide you to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 28 L 170 18" stroke="#0070C0" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aCc)"/><rect x="170" y="8" width="55" height="18" fill="#0070C0" rx="4"/><text x="197" y="20" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Turn right →</text><defs><marker id="aCc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0070C0"/></marker></defs></svg></div></div></div>
-      <div class="suite-card"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">🔬</div><h3>LL-110 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — multi-room suite with specialized research equipment and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Wait by the suite door. An RA will come greet you and guide you to your room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 60"><rect x="5" y="5" width="230" height="50" fill="#faf9f7" stroke="#e0dcd6" stroke-width="1" rx="4"/><circle cx="120" cy="30" r="4" fill="#999" opacity="0.3"><animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.08;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="120" cy="30" r="3" fill="#999"/><path d="M 128 26 L 185 14" stroke="#0070C0" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#aPc)"/><rect x="170" y="4" width="55" height="18" fill="#0070C0" rx="4"/><text x="197" y="16" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="120" y="48" text-anchor="middle" font-size="6" fill="#999" font-family="system-ui">Far right →→</text><defs><marker id="aPc" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0070C0"/></marker></defs></svg></div></div></div>
+      <div class="suite-card" id="ll102"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag">BUAD 307 (MKT) · BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 16 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your computer station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="155" cy="25" r="3.5" fill="#666"/><text x="155" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="148" y1="25" x2="80" y2="25" stroke="#9A7B0A" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="80,21 70,25 80,29" fill="#9A7B0A"/><rect x="10" y="14" width="55" height="22" fill="#9A7B0A" rx="5"/><text x="37" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="37" y="10" text-anchor="middle" font-size="5.5" fill="#9A7B0A" font-weight="600" font-family="system-ui">← LEFT</text></svg></div></div></div>
+      <div class="suite-card" id="ll112"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="85" cy="25" r="3.5" fill="#666"/><text x="85" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="92" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">RIGHT →</text></svg></div></div></div>
+      <div class="suite-card"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">🔬</div><h3>LL-110 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — multi-room suite with specialized research equipment and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to your room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="55" cy="25" r="3.5" fill="#666"/><text x="55" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="62" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">FAR RIGHT →→</text></svg></div></div></div>
     </div>
   </div>
 </section>
@@ -737,7 +795,7 @@
           <div style="display:flex; flex-direction:column; gap:12px;">
             <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:#faf9f7; border-radius:10px;">
               <span style="font-size:1.1rem;">📍</span>
-              <span style="font-size:0.88rem; color:#555; line-height:1.5;">From the lower level corridor, head to the <strong>far right</strong>. Enter LL-110 — the Lab Manager's office (LL-110-A) is the <strong>first room on your right</strong> just past the entrance.</span>
+              <span style="font-size:0.88rem; color:#555; line-height:1.5;">From the lower level corridor, walk to the <strong>far right end</strong>. LL-110 is the last suite. Once inside, the Lab Manager's office (LL-110-A) is the <strong>first door on your right</strong>.</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:#faf9f7; border-radius:10px;">
               <span style="font-size:1.1rem;">🔒</span>
@@ -778,7 +836,6 @@
   </div>
 </section>
 
-
 <div class="contact-strip" id="contact">
   <h2>Need Help Finding Us?</h2>
   <div class="contact-details">
@@ -795,45 +852,34 @@
 
 <script>
 (function() {
-  var nav = document.getElementById('stickyNav');
-  var floatCall = document.querySelector('.float-call');
+  var nav = document.getElementById("stickyNav");
+  var floatCall = document.querySelector(".float-call");
   var links = nav.querySelectorAll('a[href^="#"]');
   var sectionIds = [];
-  links.forEach(function(a) { sectionIds.push(a.getAttribute('href').slice(1)); });
+  links.forEach(function(a) { sectionIds.push(a.getAttribute("href").slice(1)); });
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
-
   var ticking = false;
-  window.addEventListener('scroll', function() {
+  window.addEventListener("scroll", function() {
     if (!ticking) {
       requestAnimationFrame(function() {
         var scrollY = window.scrollY;
-        var hero = document.querySelector('.hero');
+        var hero = document.querySelector(".hero");
         var heroH = hero ? hero.offsetHeight : 400;
         var pastHero = scrollY > heroH * 0.7;
-
         if (pastHero) {
-          nav.classList.add('visible');
-          if (floatCall) floatCall.style.opacity = '1';
-          if (floatCall) floatCall.style.pointerEvents = 'auto';
+          nav.classList.add("visible");
+          if (floatCall) { floatCall.style.opacity = "1"; floatCall.style.pointerEvents = "auto"; }
         } else {
-          nav.classList.remove('visible');
-          if (floatCall) floatCall.style.opacity = '0';
-          if (floatCall) floatCall.style.pointerEvents = 'none';
+          nav.classList.remove("visible");
+          if (floatCall) { floatCall.style.opacity = "0"; floatCall.style.pointerEvents = "none"; }
         }
-
-        var current = '';
+        var current = "";
         for (var i = sections.length - 1; i >= 0; i--) {
-          if (sections[i].getBoundingClientRect().top <= 80) {
-            current = sections[i].id;
-            break;
-          }
+          if (sections[i].getBoundingClientRect().top <= 80) { current = sections[i].id; break; }
         }
         links.forEach(function(a) {
-          if (a.getAttribute('href') === '#' + current) {
-            a.classList.add('active');
-          } else {
-            a.classList.remove('active');
-          }
+          if (a.getAttribute("href") === "#" + current) { a.classList.add("active"); }
+          else { a.classList.remove("active"); }
         });
         ticking = false;
       });
