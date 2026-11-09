@@ -8,6 +8,16 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Find MBRL">
 <title>Find the Lab — Marshall Behavioral Research Lab</title>
+<meta name="description" content="Step-by-step directions to the USC Marshall Behavioral Research Lab: Lower Level of Dauterive Hall (VPD), Suites LL-102, LL-110 and LL-112.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Marshall Behavioral Research Lab">
+<meta property="og:title" content="Find the Lab — Marshall Behavioral Research Lab">
+<meta property="og:description" content="Directions to the lab: Lower Level of Dauterive Hall (VPD). Go downstairs and ring the bell at the suite in your SONA confirmation.">
+<meta property="og:url" content="https://usc-marshall-behavioral-lab.github.io/directions/">
+<meta property="og:image" content="https://usc-marshall-behavioral-lab.github.io/directions/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -53,9 +63,9 @@
   .photo-card { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/10; background: #1a1a1a; }
   .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
   .photo-card:hover img { transform: scale(1.05); }
-  .photo-card .photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
-  .photo-card .photo-caption { color: white; font-weight: 600; font-size: 0.95rem; }
-  .photo-card .photo-sub { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 4px; }
+  .photo-card .photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 35%, transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+  .photo-card .photo-caption { color: white; font-weight: 600; font-size: 0.95rem; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+  .photo-card .photo-sub { color: rgba(255,255,255,0.92); font-size: 0.8rem; margin-top: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
 
   .journey-section { background: var(--soft-white); padding: 100px 24px; }
   .journey-inner { max-width: 900px; margin: 0 auto; }
@@ -97,11 +107,11 @@
   .suite-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .suite-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
   .suite-card-accent { height: 6px; }
-  .suite-card-accent.gold-accent { background: linear-gradient(90deg, #9A7B0A, #C5A572); }
+  .suite-card-accent.gold-accent { background: linear-gradient(90deg, #9A7B0A 0 50%, #0070C0 50% 100%); }
   .suite-card-accent.blue-accent { background: linear-gradient(90deg, #0070C0, #2E8BD8); }
   .suite-card-inner { padding: 28px; }
   .suite-card-inner .suite-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
-  .suite-icon.gold-bg { background: #FFF3E0; }
+  .suite-icon.gold-bg { background: linear-gradient(135deg, #FFF3C4 50%, #E0F0FF 50%); }
   .suite-icon.blue-bg { background: #E0F0FF; }
   .suite-card-inner h3 { font-weight: 700; font-size: 1.15rem; margin-bottom: 4px; }
   .suite-card-inner .suite-tag { font-size: 0.8rem; color: var(--warm-gray); margin-bottom: 16px; }
@@ -153,7 +163,7 @@
     .photo-grid { grid-template-columns: 1fr !important; gap: 14px; }
     .photo-card { aspect-ratio: 16/9; }
     .photo-card .photo-caption { font-size: 0.85rem; }
-    .photo-card .photo-sub { font-size: 0.72rem; }
+    .photo-card .photo-sub { font-size: 0.78rem; }
 
     /* Journey / Wayfinding */
     .journey-section { padding: 40px 16px; }
@@ -320,12 +330,52 @@
     .float-call { display: flex; }
   }
 
+  /* Pool color chips (match each SONA site) */
+  .pool-chip { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+  .pool-chip.mkt { background: #FFF3C4; color: #7D6308; border: 1px solid #E8CF6A; }
+  .pool-chip.mor { background: #E0F0FF; color: #005A9E; border: 1px solid #A9CFEF; }
+  .pool-chip.paid { background: #ECEDEF; color: #4A4F57; border: 1px solid #C9CCD1; }
+  .route-list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .route-list li { font-size: 0.92rem; color: var(--warm-gray); line-height: 1.5; }
+  .route-list .room { color: var(--charcoal); font-weight: 700; }
+
+  /* Short version strip */
+  .quick-strip { background: #fff; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 18px 24px; }
+  .quick-strip-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px; font-size: 0.95rem; color: var(--charcoal); }
+  .quick-strip-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--cardinal); font-weight: 700; }
+  .quick-step { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+  .quick-step b { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--cardinal); color: #fff; font-size: 0.72rem; align-items: center; justify-content: center; }
+  .quick-arrow { color: #bbb; }
+
+  /* Arrival tips */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; max-width: 1000px; margin: 36px auto 0; }
+  .tip-card { background: #fff; border-radius: 16px; padding: 20px 22px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 12px rgba(0,0,0,0.03); }
+  .tip-card h4 { font-size: 0.95rem; color: var(--charcoal); margin-bottom: 6px; display: flex; gap: 8px; align-items: center; }
+  .tip-card p { font-size: 0.88rem; color: #666; line-height: 1.55; margin: 0; }
+  .tip-card a { color: var(--cardinal); font-weight: 600; }
+  .tips-heading { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.4rem; color: var(--charcoal); text-align: center; margin-top: 56px; }
+
+  /* Small diagrams: let them render larger and swipe on phones */
+  .journey-visual { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 540px) {
+    .journey-visual { justify-content: flex-start; align-items: flex-start; }
+    .swipe-hint { display: block !important; }
+    .journey-visual > .sketch-caption { min-width: 0; }
+    .journey-visual > svg, .journey-visual > div { min-width: 480px; flex-shrink: 0; }
+    .quick-strip-inner { flex-direction: column; gap: 6px; font-size: 0.9rem; }
+    .quick-arrow { transform: rotate(90deg); }
+  }
+
   /* Scroll offset for anchors */
   [id] { scroll-margin-top: 60px; }
 
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="ll102Split" x1="0" y1="0" x2="1" y2="0"><stop offset="50%" stop-color="#9A7B0A"/><stop offset="50%" stop-color="#0070C0"/></linearGradient>
+</defs></svg>
 
 <!-- Floating Call Button (mobile) -->
 <a href="tel:2138219752" class="float-call" aria-label="Call the lab">
@@ -341,8 +391,9 @@
     <a href="#floorplan">Floor Plan</a>
     <a href="#ll102">LL-102 Computer Lab</a>
     <a href="#ll112">LL-110/112 Lab Suites</a>
-    <a href="#labmanager">Lab Manager</a>
+    <a href="#arrival">Before You Arrive</a>
     <a href="#contact">Contact</a>
+    <a href="#labmanager">Lab Manager</a>
   </div>
 </nav>
 
@@ -367,6 +418,15 @@
   <div class="scroll-cue" onclick="document.querySelector('.gallery-section').scrollIntoView({behavior:'smooth'})">Scroll for directions<div class="arrow"></div></div>
 </div>
 
+<div class="quick-strip" aria-label="Short version">
+  <div class="quick-strip-inner">
+    <span class="quick-strip-label">Short version</span>
+    <span class="quick-step"><b>1</b>Dauterive Hall (VPD)</span><span class="quick-arrow">→</span>
+    <span class="quick-step"><b>2</b>Down one floor to the Lower Level</span><span class="quick-arrow">→</span>
+    <span class="quick-step"><b>3</b>Ring the bell at the suite in your SONA confirmation</span>
+  </div>
+</div>
+
 <section class="gallery-section" id="building">
   <div class="section-inner">
     <div class="section-label">The Building</div>
@@ -374,19 +434,19 @@
     <p class="gallery-subtitle">A 6-story research building on USC's University Park Campus. Brick exterior, Italian Romanesque style. The behavioral research lab is on the Lower Level — one floor below the ground floor entrance.</p>
     <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="photo-card">
-        <img src="https://localist-images.azureedge.net/photos/395441/big_square@2x/8c825e2358620e7383991148c566a86edf33ea10.jpg" alt="Dauterive Hall north entrance" loading="lazy">
+        <img src="images/vpd-north-entrance.jpg" alt="Dauterive Hall north entrance" loading="lazy">
         <div class="photo-overlay"><div class="photo-caption">North Entrance — Childs Way Side</div><div class="photo-sub">Facing USC Price School of Public Policy</div></div>
       </div>
       <div class="photo-card">
-        <img src="https://pacificofficeinteriors.com/wp-content/uploads/2019/01/USC-VPD-1-LowRes.jpg" alt="Dauterive Hall south entrance" loading="lazy">
-        <div class="photo-overlay"><div class="photo-caption">South Entrance — Exposition Blvd Side</div><div class="photo-sub">Facing USC Gould School of Law</div></div>
+        <img src="images/vpd-south-entrance.jpg" alt="Dauterive Hall south entrance" loading="lazy">
+        <div class="photo-overlay"><div class="photo-caption">South Entrance — Exposition Blvd Side</div><div class="photo-sub">Facing Exposition Blvd, next door to USC Gould School of Law</div></div>
       </div>
       <div class="photo-card">
-        <img src="https://www.enr.com/ext/resources/Issues/Web/National/November/1-Exterior.jpg?t=1448468570&width=900" alt="Dauterive Hall south entrance with Pardee gate" loading="lazy">
+        <img src="images/vpd-pardee-approach.jpg" alt="Dauterive Hall south entrance with Pardee gate" loading="lazy">
         <div class="photo-overlay"><div class="photo-caption">South Approach via Pardee Way</div><div class="photo-sub">Pardee gate driveway entrance to campus</div></div>
       </div>
       <div class="photo-card">
-        <img src="https://www.hksinc.com/wp-content/uploads/2018/10/USC_VernaPeterDauteriveHall_01.jpg" alt="Dauterive Hall interior atrium" loading="lazy">
+        <img src="images/vpd-atrium.jpg" alt="Dauterive Hall interior atrium" loading="lazy">
         <div class="photo-overlay"><div class="photo-caption">Interior — Ground Floor Atrium</div><div class="photo-sub">Look for the stairs or elevator to go down to the Lower Level</div></div>
       </div>
     </div>
@@ -403,84 +463,80 @@
         <div class="journey-card">
           <div class="journey-card-body">
             <h3>1 — Locate Dauterive Hall on Campus</h3>
-            <p>Head to <strong>635 Downey Way</strong> on USC's University Park Campus. Dauterive Hall (VPD) is the brick building between <strong>Trousdale Parkway</strong> and <strong>Pardee Way</strong>. If you're coming from the south, you'll see it just past USC Gould School of Law. From the north, look for it across from USC Price School on Childs Way.</p>
-            <div class="tip-badge">🅿️ Nearest parking: Parking Structure X (via Pardee Way entrance)</div>
+            <p>Head to <strong>635 Downey Way</strong> on USC's University Park Campus. Dauterive Hall (VPD) is the brick building on the south edge of campus, between <strong>Childs Way</strong> and <strong>Exposition Boulevard</strong>, just west of <strong>Pardee Way</strong>. Its next-door neighbor to the west is USC Gould School of Law, and USC Price School (Lewis Hall) is across Childs Way to the north.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <div class="tip-badge">🅿️ Parking: McCarthy Way Parking Structure (formerly PSX), McCarthy Way entrance off Figueroa St</div>
+              <div class="tip-badge">🚇 Metro E Line: Expo Park/USC station, then walk east on Exposition Blvd toward Pardee Way</div>
+            </div>
             <div class="map-links">
               <a href="https://www.google.com/maps/search/?api=1&query=Verna+and+Peter+Dauterive+Hall+635+Downey+Way+Los+Angeles+CA+90089" target="_blank" class="map-link"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#EA4335"/></svg>Google Maps</a>
               <a href="https://maps.usc.edu/?id=1928&reference=VPD" target="_blank" class="map-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#990000" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>USC Interactive Map</a>
             </div>
           </div>
-          <div class="journey-visual" style="background:#f0ece6;">
-            <svg viewBox="0 0 560 220">
-              <!-- Streets -->
-              <rect x="0" y="205" width="560" height="15" fill="#E0DCD4" rx="2"/><text x="280" y="216" text-anchor="middle" font-size="7" fill="#AAA" font-family="system-ui" font-weight="600" letter-spacing="1">W EXPOSITION BLVD (SOUTH)</text>
-              <rect x="0" y="0" width="560" height="12" fill="#E8E4DE" rx="2"/><text x="280" y="9" text-anchor="middle" font-size="7" fill="#AAA" font-family="system-ui" font-weight="600" letter-spacing="1">CHILDS WAY (NORTH)</text>
-              <rect x="0" y="12" width="12" height="193" fill="#E8E4DE"/><text x="6" y="108" text-anchor="middle" font-size="6" fill="#AAA" font-family="system-ui" font-weight="600" transform="rotate(-90,6,108)" letter-spacing="0.5">TROUSDALE PKWY</text>
-              <!-- Campus green -->
-              <rect x="12" y="12" width="536" height="193" fill="#E8F0E0" rx="3"/>
-              <!-- Pardee Way — vertical road between VPD and Popovich/Fertitta -->
-              <rect x="340" y="12" width="10" height="193" fill="#DDD8CE" rx="1"/>
-              <text x="345" y="200" text-anchor="middle" font-size="5" fill="#AAA" font-family="system-ui" font-weight="600" transform="rotate(-90,345,200)" letter-spacing="0.5">PARDEE WAY</text>
-              <!-- Downey Way (horizontal path) -->
-              <rect x="12" y="95" width="536" height="8" fill="#DDD8CE" rx="1"/><text x="60" y="101" font-size="5" fill="#BBB" font-family="system-ui" font-weight="500">DOWNEY WAY</text>
+          <div class="journey-visual" style="background:#f0ece6; flex-direction:column;">
+            <svg viewBox="0 0 480 280" style="max-width:640px" role="img" aria-label="Sketch of the blocks around Dauterive Hall. North is up.">
+              <rect x="0" y="0" width="480" height="280" fill="#EEF2E8" rx="6"/>
+              <!-- Childs Way -->
+              <rect x="0" y="60" width="480" height="18" fill="#DDD8CE"/>
+              <text x="440" y="73" text-anchor="end" font-size="10" fill="#8a8478" font-family="system-ui" font-weight="700" letter-spacing="1">CHILDS WAY</text>
+              <!-- Exposition Blvd -->
+              <rect x="0" y="218" width="480" height="26" fill="#D6D0C4"/>
+              <text x="150" y="235" text-anchor="middle" font-size="10" fill="#7a7468" font-family="system-ui" font-weight="700" letter-spacing="1">EXPOSITION BLVD</text>
+              <!-- Trousdale Pkwy -->
+              <rect x="22" y="0" width="16" height="244" fill="#DDD8CE"/>
+              <text x="30" y="150" text-anchor="middle" font-size="9" fill="#8a8478" font-family="system-ui" font-weight="700" transform="rotate(-90,30,150)" letter-spacing="1">TROUSDALE PKWY</text>
+              <!-- Pardee Way -->
+              <rect x="330" y="78" width="14" height="140" fill="#DDD8CE"/>
+              <text x="337" y="150" text-anchor="middle" font-size="9" fill="#8a8478" font-family="system-ui" font-weight="700" transform="rotate(-90,337,150)" letter-spacing="1">PARDEE WAY</text>
 
-              <!-- ═══ VPD — west of Pardee Way ═══ -->
-              <rect x="180" y="45" width="140" height="55" fill="#C4956A" stroke="#A07040" stroke-width="2" rx="4"/>
-              <text x="250" y="68" text-anchor="middle" font-size="11" fill="#fff" font-family="system-ui" font-weight="700" letter-spacing="1">VPD</text>
-              <text x="250" y="80" text-anchor="middle" font-size="5.5" fill="#FFE4C0" font-family="system-ui">Dauterive Hall</text>
-              <!-- Entrance highlights -->
-              <rect x="232" y="98" width="36" height="7" fill="#FFCC00" stroke="#D4A017" stroke-width="0.8" rx="2"/>
-              <text x="250" y="115" text-anchor="middle" font-size="5" fill="#7D6308" font-weight="600" font-family="system-ui">SOUTH ENT</text>
-              <rect x="232" y="39" width="36" height="7" fill="#FFCC00" stroke="#D4A017" stroke-width="0.8" rx="2"/>
-              <text x="250" y="37" text-anchor="middle" font-size="5" fill="#7D6308" font-weight="600" font-family="system-ui">NORTH ENT</text>
+              <!-- North of Childs Way -->
+              <rect x="190" y="14" width="130" height="36" fill="#D4CFC5" rx="4"/>
+              <text x="255" y="30" text-anchor="middle" font-size="10" fill="#666" font-family="system-ui" font-weight="600">USC Price School</text>
+              <text x="255" y="43" text-anchor="middle" font-size="9" fill="#888" font-family="system-ui">Lewis Hall</text>
 
-              <!-- ═══ MARSHALL BUILDINGS (cardinal red) ═══ -->
-              <!-- Hoffman Hall — southwest of VPD -->
-              <rect x="22" y="130" width="72" height="24" fill="#990000" stroke="#7A0000" stroke-width="1" rx="3" opacity="0.65"/>
-              <text x="58" y="145" text-anchor="middle" font-size="6" fill="#fff" font-family="system-ui" font-weight="600">Hoffman Hall</text>
-              <!-- Popovich Hall — east of Pardee Way, left of Fertitta -->
-              <rect x="360" y="45" width="78" height="28" fill="#990000" stroke="#7A0000" stroke-width="1" rx="3" opacity="0.65"/>
-              <text x="399" y="62" text-anchor="middle" font-size="6" fill="#fff" font-family="system-ui" font-weight="600">Popovich Hall</text>
-              <!-- Fertitta Hall — east of Popovich -->
-              <rect x="448" y="45" width="78" height="28" fill="#990000" stroke="#7A0000" stroke-width="1" rx="3" opacity="0.65"/>
-              <text x="487" y="62" text-anchor="middle" font-size="6" fill="#fff" font-family="system-ui" font-weight="600">Fertitta Hall</text>
+              <!-- Row between Childs and Exposition, west to east -->
+              <rect x="48" y="110" width="66" height="70" fill="#990000" opacity="0.7" rx="4"/>
+              <text x="81" y="143" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">Hoffman</text>
+              <text x="81" y="156" text-anchor="middle" font-size="9" fill="#fff" font-family="system-ui">Hall</text>
 
-              <!-- ═══ OTHER NEIGHBORS ═══ -->
-              <!-- Leventhal / Accounting — northwest -->
-              <rect x="22" y="45" width="90" height="22" fill="#D4CFC5" stroke="#C0B8AA" stroke-width="1" rx="3"/>
-              <text x="67" y="59" text-anchor="middle" font-size="5.5" fill="#888" font-family="system-ui" font-weight="500">Leventhal Accounting</text>
-              <!-- Law school — south of VPD -->
-              <rect x="170" y="135" width="155" height="22" fill="#D4CFC5" stroke="#C0B8AA" stroke-width="1" rx="3"/>
-              <text x="247" y="149" text-anchor="middle" font-size="6.5" fill="#888" font-family="system-ui" font-weight="600">USC Gould School of Law</text>
-              <!-- Price School — north of VPD -->
-              <rect x="180" y="16" width="140" height="18" fill="#D4CFC5" stroke="#C0B8AA" stroke-width="1" rx="3"/>
-              <text x="250" y="28" text-anchor="middle" font-size="5.5" fill="#888" font-family="system-ui" font-weight="500">USC Price School</text>
+              <rect x="122" y="100" width="70" height="90" fill="#D4CFC5" rx="4"/>
+              <text x="157" y="140" text-anchor="middle" font-size="10" fill="#666" font-family="system-ui" font-weight="600">Gould</text>
+              <text x="157" y="153" text-anchor="middle" font-size="9" fill="#888" font-family="system-ui">School of Law</text>
 
-              <!-- Parking — east of Fertitta -->
-              <rect x="460" y="18" width="60" height="20" fill="#6688AA" rx="3" opacity="0.7"/>
-              <text x="490" y="30" text-anchor="middle" font-size="5" fill="#fff" font-family="system-ui" font-weight="600">🅿️ Struct. X</text>
+              <rect x="202" y="92" width="116" height="110" fill="#C4956A" stroke="#A07040" stroke-width="2" rx="5"/>
+              <text x="260" y="145" text-anchor="middle" font-size="18" fill="#fff" font-family="system-ui" font-weight="800" letter-spacing="1">VPD</text>
+              <text x="260" y="162" text-anchor="middle" font-size="10" fill="#FFF1DE" font-family="system-ui">Dauterive Hall</text>
+              <rect x="240" y="86" width="40" height="9" fill="#FFCC00" stroke="#D4A017" rx="2"/>
+              <text x="260" y="104" text-anchor="middle" font-size="8" fill="#7D6308" font-family="system-ui" font-weight="700">NORTH ENTRANCE</text>
+              <rect x="240" y="199" width="40" height="9" fill="#FFCC00" stroke="#D4A017" rx="2"/>
+              <text x="260" y="194" text-anchor="middle" font-size="8" fill="#7D6308" font-family="system-ui" font-weight="700">SOUTH ENTRANCE</text>
 
-              <!-- Trees -->
-              <circle cx="140" cy="42" r="7" fill="#8CB88C" opacity="0.5"/>
-              <circle cx="165" cy="130" r="6" fill="#8CB88C" opacity="0.4"/>
-              <circle cx="400" cy="170" r="7" fill="#8CB88C" opacity="0.4"/>
-              <circle cx="500" cy="170" r="6" fill="#8CB88C" opacity="0.4"/>
-              <circle cx="130" cy="170" r="6" fill="#8CB88C" opacity="0.4"/>
+              <rect x="354" y="100" width="56" height="90" fill="#990000" opacity="0.7" rx="4"/>
+              <text x="382" y="141" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">Popovich</text>
+              <text x="382" y="154" text-anchor="middle" font-size="9" fill="#fff" font-family="system-ui">Hall</text>
+              <rect x="416" y="100" width="56" height="90" fill="#990000" opacity="0.7" rx="4"/>
+              <text x="444" y="141" text-anchor="middle" font-size="10" fill="#fff" font-family="system-ui" font-weight="700">Fertitta</text>
+              <text x="444" y="154" text-anchor="middle" font-size="9" fill="#fff" font-family="system-ui">Hall</text>
 
-              <!-- You arrow from Exposition -->
-              <path d="M 250 203 L 250 160" stroke="#990000" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#aR)"/>
-              <text x="275" y="195" font-size="7" fill="#990000" font-weight="700" font-family="system-ui">YOU →</text>
+              <!-- Pardee Way gate on Exposition -->
+              <rect x="318" y="244" width="38" height="14" fill="#990000" rx="3"/>
+              <text x="337" y="254" text-anchor="middle" font-size="8" fill="#fff" font-family="system-ui" font-weight="700">GATE</text>
+              <text x="337" y="270" text-anchor="middle" font-size="8.5" fill="#666" font-family="system-ui">Pardee Way entrance</text>
+              <!-- Metro -->
+              <rect x="10" y="248" width="86" height="24" fill="#fff" stroke="#bbb" rx="4"/>
+              <text x="53" y="259" text-anchor="middle" font-size="8.5" fill="#333" font-family="system-ui" font-weight="700">🚇 Expo Park/USC</text>
+              <text x="53" y="268" text-anchor="middle" font-size="7.5" fill="#888" font-family="system-ui">Metro E Line</text>
+              <!-- You arrow from Exposition to south entrance -->
+              <path d="M 260 240 L 260 212" stroke="#990000" stroke-width="2.5" stroke-dasharray="4,3" marker-end="url(#aR)"/>
+              <text x="268" y="250" font-size="9" fill="#990000" font-weight="800" font-family="system-ui">YOU</text>
 
+              <!-- Compass (north up) -->
+              <g transform="translate(455,30)"><circle r="13" fill="#fff" stroke="#D4CFC5"/><polygon points="0,-9 4,2 -4,2" fill="#990000"/><text y="10" text-anchor="middle" font-size="8" fill="#990000" font-weight="800" font-family="system-ui">N</text></g>
               <!-- Legend -->
-              <g transform="translate(360,190)">
-                <rect x="0" y="0" width="8" height="8" fill="#990000" rx="1" opacity="0.8"/><text x="11" y="7" font-size="5" fill="#666" font-family="system-ui">Marshall buildings</text>
-                <rect x="90" y="0" width="8" height="8" fill="#C4956A" rx="1"/><text x="101" y="7" font-size="5" fill="#666" font-family="system-ui">VPD (Lab)</text>
-              </g>
-
-              <!-- Compass -->
-              <g transform="translate(530,185)"><circle cx="0" cy="0" r="9" fill="#faf9f7" stroke="#D4CFC5" stroke-width="1"/><text x="3" y="3" text-anchor="middle" font-size="7" fill="#990000" font-weight="700" font-family="system-ui">N</text><polygon points="7,0 3,-2 3,2" fill="#990000"/></g>
+              <g transform="translate(48,196)"><rect width="10" height="10" fill="#990000" opacity="0.7" rx="2"/><text x="14" y="9" font-size="8.5" fill="#666" font-family="system-ui">Marshall buildings</text></g>
               <defs><marker id="aR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M 0 0 L 6 3 L 0 6 Z" fill="#990000"/></marker></defs>
             </svg>
+            <div class="sketch-caption" style="font-size:0.75rem; color:#999; text-align:center; margin-top:6px; position:sticky; left:0; width:100%; max-width:calc(100vw - 64px);">Simplified sketch, not to scale. North is up.<span class="swipe-hint" style="display:none;">← Swipe to see the full sketch →</span></div>
           </div>
         </div>
       </div>
@@ -606,7 +662,12 @@
           <div class="journey-card-body">
             <h3>4 — Find Your Assigned Suite</h3>
             <p>Check your <strong>SONA confirmation email</strong> — it tells you which suite to go to. Each door has a sign with the room number. If you're unsure, just call us.</p>
-            <p><strong>BUAD 307 (MKT)</strong> → <strong style="color:#9A7B0A;">LL-102</strong> Computer Lab<br><strong>BUAD 304 / 497 (MOR)</strong> → <strong style="color:#0070C0;">LL-112</strong>, <strong style="color:#0070C0;">LL-110</strong>, or <strong style="color:#9A7B0A;">LL-102</strong> — check your confirmation</p>
+            <ul class="route-list">
+              <li><span class="pool-chip mkt">BUAD 307 (MKT)</span> → <span class="room">LL-102</span> Computer Lab</li>
+              <li><span class="pool-chip mor">BUAD 304 / 497 (MOR)</span> → <span class="room">LL-112</span>, <span class="room">LL-110</span>, or <span class="room">LL-102</span>, depending on the study</li>
+              <li><span class="pool-chip paid">Paid studies</span> → the suite varies by study</li>
+            </ul>
+            <p style="margin-top:10px;">For MOR and paid studies, your SONA confirmation names the suite.</p>
           </div>
           <div class="journey-visual" style="padding:16px 12px;">
             <svg viewBox="0 0 480 120">
@@ -622,12 +683,12 @@
               <text x="240" y="92" text-anchor="middle" font-size="8" fill="#990000" font-family="system-ui" font-weight="700">YOU ARE HERE</text>
 
               <!-- LEFT ARROW — LL-102 -->
-              <line x1="225" y1="75" x2="130" y2="75" stroke="#9A7B0A" stroke-width="3" stroke-dasharray="8,5"/>
-              <polygon points="130,70 118,75 130,80" fill="#9A7B0A"/>
-              <rect x="20" y="14" width="95" height="42" fill="#9A7B0A" rx="8" filter="url(#shadow4)"/>
+              <line x1="225" y1="75" x2="130" y2="75" stroke="#666" stroke-width="3" stroke-dasharray="8,5"/>
+              <polygon points="130,70 118,75 130,80" fill="#666"/>
+              <rect x="20" y="14" width="95" height="42" fill="url(#ll102Split)" rx="8" filter="url(#shadow4)"/>
               <text x="67" y="34" text-anchor="middle" font-size="14" fill="#fff" font-family="system-ui" font-weight="700">LL-102</text>
-              <text x="67" y="47" text-anchor="middle" font-size="7" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
-              <text x="67" y="8" text-anchor="middle" font-size="7" fill="#9A7B0A" font-family="system-ui" font-weight="600">← LEFT</text>
+              <text x="67" y="47" text-anchor="middle" font-size="7" fill="#fff" font-family="system-ui">Computer Lab</text>
+              <text x="67" y="8" text-anchor="middle" font-size="7" fill="#555" font-family="system-ui" font-weight="600">← LEFT</text>
 
               <!-- RIGHT ARROW — LL-112 & LL-110 -->
               <line x1="255" y1="75" x2="340" y2="75" stroke="#0070C0" stroke-width="3" stroke-dasharray="8,5"/>
@@ -662,7 +723,7 @@
       <div style="width:100%; max-width:860px; margin:0 auto; min-width:500px;">
         <svg viewBox="0 0 500 175" style="width:100%;height:auto;">
           <defs>
-            <linearGradient id="labGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#9A7B0A"/><stop offset="100%" style="stop-color:#7d6308"/></linearGradient>
+            <linearGradient id="labGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="50%" stop-color="#9A7B0A"/><stop offset="50%" stop-color="#0070C0"/></linearGradient>
             <linearGradient id="suiteGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#0070C0"/><stop offset="100%" style="stop-color:#005A9E"/></linearGradient>
             <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#e8e4de" stroke-width="1"/></pattern>
           </defs>
@@ -707,26 +768,26 @@
           <rect x="142" y="55" width="128" height="50" fill="url(#hatch)" stroke="#c9c4bc" stroke-width="1" rx="2"/>
           <rect x="142" y="55" width="128" height="50" fill="#e8e4de" opacity="0.5" rx="2"/>
           <text x="206" y="78" text-anchor="middle" font-size="7" fill="#aaa" font-weight="600" font-family="system-ui" letter-spacing="1.5">STAIRS</text>
-          <text x="206" y="88" text-anchor="middle" font-size="5" fill="#bbb" font-family="system-ui">↕ to Ground Floor</text>
+          <text x="206" y="88" text-anchor="middle" font-size="6.5" fill="#999" font-family="system-ui">↕ to Ground Floor</text>
 
           <!-- ═══ LL-102 — COMPUTER LAB ═══ -->
-          <rect x="32" y="108" width="86" height="40" fill="url(#labGrad)" stroke="#7d6308" stroke-width="1.5" rx="4"/>
+          <rect x="32" y="108" width="86" height="40" fill="url(#labGrad)" stroke="#555" stroke-width="1.5" rx="4"/>
           <text x="75" y="126" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-102</text>
-          <text x="75" y="140" text-anchor="middle" font-size="5" fill="#FFE4C0" font-family="system-ui">Computer Lab</text>
+          <text x="75" y="140" text-anchor="middle" font-size="6.5" fill="#fff" font-family="system-ui">Computer Lab</text>
           <!-- Door indicator -->
           <rect x="100" y="105" width="12" height="3" fill="#333" rx="1"/>
 
           <!-- ═══ LL-112 — LAB SUITE ═══ -->
           <rect x="288" y="5" width="74" height="44" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="1.5" rx="4"/>
           <text x="325" y="24" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-112</text>
-          <text x="325" y="38" text-anchor="middle" font-size="5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+          <text x="325" y="38" text-anchor="middle" font-size="6.5" fill="#E6F2FC" font-family="system-ui">Lab Suite</text>
           <!-- Door indicator -->
           <rect x="310" y="49" width="12" height="3" fill="#333" rx="1"/>
 
           <!-- ═══ LL-110 — LAB SUITE ═══ -->
           <rect x="368" y="5" width="74" height="44" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="1.5" rx="4"/>
           <text x="405" y="24" text-anchor="middle" font-size="12" fill="#fff" font-weight="700" font-family="system-ui" letter-spacing="0.5">LL-110</text>
-          <text x="405" y="38" text-anchor="middle" font-size="5" fill="#CCE4F5" font-family="system-ui">Lab Suite</text>
+          <text x="405" y="38" text-anchor="middle" font-size="6.5" fill="#E6F2FC" font-family="system-ui">Lab Suite</text>
           <!-- Door indicator -->
           <rect x="392" y="49" width="12" height="3" fill="#333" rx="1"/>
 
@@ -741,12 +802,12 @@
 
           <!-- ── Legend ── -->
           <g transform="translate(50, 158)">
-            <rect x="0" y="0" width="10" height="10" fill="url(#labGrad)" stroke="#7d6308" stroke-width="0.5" rx="1.5"/><text x="14" y="8" font-size="5.5" fill="#666" font-family="system-ui">Computer Lab</text>
-            <rect x="85" y="0" width="10" height="10" fill="url(#suiteGrad)" stroke="#005A9E" stroke-width="0.5" rx="1.5"/><text x="99" y="8" font-size="5.5" fill="#666" font-family="system-ui">Lab Suite</text>
-            <rect x="155" y="0" width="10" height="10" fill="#2D7A3A" stroke="#1E5C2A" stroke-width="0.5" rx="1.5"/><text x="169" y="8" font-size="5.5" fill="#666" font-family="system-ui">Entrance</text>
-            <rect x="215" y="0" width="10" height="10" fill="#990000" stroke="#7a0000" stroke-width="0.5" rx="1.5"/><text x="229" y="8" font-size="5.5" fill="#666" font-family="system-ui">Exit</text>
-            <rect x="258" y="1" width="10" height="3" fill="#333" rx="1"/><text x="272" y="8" font-size="5.5" fill="#666" font-family="system-ui">Door</text>
-            <rect x="303" y="0" width="10" height="10" fill="#990000" rx="1.5" opacity="0.85"/><text x="315" y="5" font-size="7" fill="#FFCC00">★</text><text x="326" y="8" font-size="5.5" fill="#666" font-family="system-ui">Lab Mgr</text>
+            <rect x="0" y="0" width="10" height="10" fill="#9A7B0A" rx="1.5"/><text x="14" y="8" font-size="6.5" fill="#666" font-family="system-ui">MKT</text>
+            <rect x="40" y="0" width="10" height="10" fill="#0070C0" rx="1.5"/><text x="54" y="8" font-size="6.5" fill="#666" font-family="system-ui">MOR</text><text x="85" y="8" font-size="6.5" fill="#999" font-family="system-ui">(LL-102 is shared)</text>
+            <rect x="155" y="0" width="10" height="10" fill="#2D7A3A" stroke="#1E5C2A" stroke-width="0.5" rx="1.5"/><text x="169" y="8" font-size="6.5" fill="#666" font-family="system-ui">Entrance</text>
+            <rect x="215" y="0" width="10" height="10" fill="#990000" stroke="#7a0000" stroke-width="0.5" rx="1.5"/><text x="229" y="8" font-size="6.5" fill="#666" font-family="system-ui">Exit</text>
+            <rect x="258" y="1" width="10" height="3" fill="#333" rx="1"/><text x="272" y="8" font-size="6.5" fill="#666" font-family="system-ui">Door</text>
+            <rect x="303" y="0" width="10" height="10" fill="#990000" rx="1.5" opacity="0.85"/><text x="315" y="5" font-size="7" fill="#FFCC00">★</text><text x="326" y="8" font-size="6.5" fill="#666" font-family="system-ui">Lab Mgr</text>
           </g>
         </svg>
       </div>
@@ -771,17 +832,37 @@
     </div>
 
     <div class="suite-grid">
-      <div class="suite-card" id="ll102"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag">BUAD 307 (MKT) · BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 16 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your computer station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="155" cy="25" r="3.5" fill="#666"/><text x="155" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="148" y1="25" x2="80" y2="25" stroke="#9A7B0A" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="80,21 70,25 80,29" fill="#9A7B0A"/><rect x="10" y="14" width="55" height="22" fill="#9A7B0A" rx="5"/><text x="37" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="37" y="10" text-anchor="middle" font-size="5.5" fill="#9A7B0A" font-weight="600" font-family="system-ui">← LEFT</text></svg></div></div></div>
-      <div class="suite-card" id="ll112"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="85" cy="25" r="3.5" fill="#666"/><text x="85" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="92" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">RIGHT →</text></svg></div></div></div>
-      <div class="suite-card"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">🔬</div><h3>LL-110 — Lab Suite</h3><div class="suite-tag">BUAD 304 / 497 (MOR)</div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — multi-room suite with specialized research equipment and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to your room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="55" cy="25" r="3.5" fill="#666"/><text x="55" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="62" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">FAR RIGHT →→</text></svg></div></div></div>
+      <div class="suite-card" id="ll102"><div class="suite-card-accent gold-accent"></div><div class="suite-card-inner"><div class="suite-icon gold-bg">🖥️</div><h3>LL-102 — Computer Lab</h3><div class="suite-tag"><span class="pool-chip mkt">BUAD 307 (MKT)</span> <span class="pool-chip mor">BUAD 304 / 497 (MOR)</span></div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Left side of the lower level — 16 computer stations for online survey studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell. An RA will let you in and direct you to your computer station.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="155" cy="25" r="3.5" fill="#666"/><text x="155" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="148" y1="25" x2="80" y2="25" stroke="#666" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="80,21 70,25 80,29" fill="#666"/><rect x="10" y="14" width="55" height="22" fill="url(#ll102Split)" rx="5"/><text x="37" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-102</text><text x="37" y="10" text-anchor="middle" font-size="5.5" fill="#555" font-weight="600" font-family="system-ui">← LEFT</text></svg></div></div></div>
+      <div class="suite-card" id="ll112"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">📋</div><h3>LL-112 — Lab Suite</h3><div class="suite-tag"><span class="pool-chip mor">BUAD 304 / 497 (MOR)</span></div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Right side — multi-room suite for behavioral experiments and group studies</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to the correct study room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="85" cy="25" r="3.5" fill="#666"/><text x="85" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="92" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-112</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">RIGHT →</text></svg></div></div></div>
+      <div class="suite-card"><div class="suite-card-accent blue-accent"></div><div class="suite-card-inner"><div class="suite-icon blue-bg">🔬</div><h3>LL-110 — Lab Suite</h3><div class="suite-tag"><span class="pool-chip mor">BUAD 304 / 497 (MOR)</span></div><div class="suite-detail"><span class="suite-detail-icon">📍</span><span>Far right — multi-room suite with specialized research equipment and control room</span></div><div class="suite-detail"><span class="suite-detail-icon">🔔</span><span>Ring the doorbell at the suite entrance. An RA will come greet you and guide you to your room.</span></div><div class="suite-wayfind"><svg viewBox="0 0 240 55"><rect x="5" y="18" width="230" height="14" fill="#f0ece6" rx="7"/><text x="120" y="50" text-anchor="middle" font-size="5.5" fill="#bbb" font-family="system-ui" letter-spacing="1">CORRIDOR</text><circle cx="55" cy="25" r="3.5" fill="#666"/><text x="55" y="15" text-anchor="middle" font-size="6" fill="#666" font-weight="600" font-family="system-ui">You</text><line x1="62" y1="25" x2="165" y2="25" stroke="#0070C0" stroke-width="2.5" stroke-dasharray="5,3"/><polygon points="165,21 175,25 165,29" fill="#0070C0"/><rect x="178" y="14" width="55" height="22" fill="#0070C0" rx="5"/><text x="205" y="28" text-anchor="middle" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">LL-110</text><text x="205" y="10" text-anchor="middle" font-size="5.5" fill="#0070C0" font-weight="600" font-family="system-ui">FAR RIGHT →→</text></svg></div></div></div>
+    </div>
+  
+    <h3 class="tips-heading" id="arrival">Before You Arrive</h3>
+    <div class="tips-grid">
+      <div class="tip-card"><h4>⏰ Plan a few minutes extra</h4><p>Finding the Lower Level takes a minute the first time. Arriving a few minutes early keeps your session on schedule.</p></div>
+      <div class="tip-card"><h4>🏃 Running late?</h4><p>Call or email the lab so the RA knows you're on your way.</p></div>
+      <div class="tip-card"><h4>🌙 Evening or weekend session?</h4><p>Building doors may be locked outside business hours. If you can't get in, call and we'll help.</p></div>
+      <div class="tip-card"><h4>🚇 Coming by Metro?</h4><p>Take the E Line to Expo Park/USC. Walk east along Exposition Blvd; VPD is on your left, just before Pardee Way.</p></div>
     </div>
   </div>
+
 </section>
 
 <!-- ═══ FINDING THE LAB MANAGER ═══ -->
+
+
+<div class="contact-strip" id="contact">
+  <h2>Need Help Finding Us?</h2>
+  <div class="contact-details">
+    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2138219752">213.821.9752</a></div>
+    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Verna+and+Peter+Dauterive+Hall+635+Downey+Way+Los+Angeles+CA+90089" target="_blank">635 Downey Way, Los Angeles, CA 90089</a></div>
+    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:behaviorallab@marshall.usc.edu">behaviorallab@marshall.usc.edu</a></div>
+  </div>
+</div>
+
 <section id="labmanager" style="padding:64px 32px; background:linear-gradient(180deg, #faf9f7, #f5f3f0);">
   <div style="max-width:700px; margin:0 auto;">
-    <div class="section-label">Lab Manager</div>
+    <div class="section-label">For Researchers &amp; Visitors</div>
     <h2 class="section-title">Looking for the Lab Manager?</h2>
     <div style="background:white; border-radius:20px; border:1px solid #e8e4de; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.04);">
       <div style="padding:28px 32px; display:flex; gap:20px; align-items:flex-start;">
@@ -799,12 +880,9 @@
             </div>
             <div style="display:flex; align-items:center; gap:12px; padding:12px 16px; background:#faf9f7; border-radius:10px;">
               <span style="font-size:1.1rem;">🔒</span>
-              <span style="font-size:0.88rem; color:#555; line-height:1.5;">LL-110 requires card access and is by appointment only. Call ahead or email to arrange a visit.</span>
+              <span style="font-size:0.88rem; color:#555; line-height:1.5;">LL-110 requires card access and is by appointment only. Call or email ahead (contact info above) to arrange a visit.</span>
             </div>
-            <div style="display:flex; align-items:flex-start; gap:12px; padding:12px 16px; background:#FFF8E1; border-radius:10px; border:1px solid #F0E0A0;">
-              <span style="font-size:1.1rem;">📞</span>
-              <span style="font-size:0.88rem; color:#555; line-height:1.5;"><strong>Best way to reach us:</strong><br>Call <a href="tel:2138219752" style="color:#990000; font-weight:600;">213.821.9752</a> or email <a href="mailto:behaviorallab@marshall.usc.edu" style="color:#990000; font-weight:600;">behaviorallab@marshall.usc.edu</a></span>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -818,32 +896,23 @@
           <!-- You indicator -->
           <circle cx="40" cy="27" r="5" fill="#999" opacity="0.15"><animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.15;0.04;0.15" dur="2s" repeatCount="indefinite"/></circle>
           <circle cx="40" cy="27" r="3" fill="#999"/>
-          <text x="40" y="17" text-anchor="middle" font-size="5" fill="#999" font-family="system-ui">You</text>
+          <text x="40" y="16" text-anchor="middle" font-size="7" fill="#999" font-family="system-ui">You</text>
           <!-- Path -->
           <path d="M 48 27 L 310 27" stroke="#990000" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#aLM)"/>
           <!-- LL-110 suite -->
           <rect x="300" y="7" width="90" height="20" fill="#0070C0" rx="4" opacity="0.85"/>
-          <text x="335" y="20" text-anchor="middle" font-size="6" fill="#fff" font-weight="600" font-family="system-ui">LL-110</text>
+          <text x="330" y="20" text-anchor="middle" font-size="7.5" fill="#fff" font-weight="600" font-family="system-ui">LL-110</text>
           <!-- 110-A nested in right corner -->
           <rect x="360" y="10" width="27" height="14" fill="#990000" rx="2"/>
-          <text x="373.5" y="19" text-anchor="middle" font-size="4.5" fill="#fff" font-weight="700" font-family="system-ui">110-A</text>
+          <text x="373.5" y="19" text-anchor="middle" font-size="6" fill="#fff" font-weight="700" font-family="system-ui">110-A</text>
           <text x="373.5" y="7" font-size="5" fill="#FFCC00" text-anchor="middle">★</text>
-          <text x="345" y="40" text-anchor="middle" font-size="4.5" fill="#990000" font-weight="600" font-family="system-ui">Lab Mgr Office</text>
+          <text x="345" y="44" text-anchor="middle" font-size="7" fill="#990000" font-weight="600" font-family="system-ui">Lab Mgr Office</text>
           <defs><marker id="aLM" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#990000"/></marker></defs>
         </svg>
       </div>
     </div>
   </div>
 </section>
-
-<div class="contact-strip" id="contact">
-  <h2>Need Help Finding Us?</h2>
-  <div class="contact-details">
-    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2138219752">213.821.9752</a></div>
-    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Verna+and+Peter+Dauterive+Hall+635+Downey+Way+Los+Angeles+CA+90089" target="_blank">635 Downey Way, Los Angeles, CA 90089</a></div>
-    <div class="contact-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:behaviorallab@marshall.usc.edu">behaviorallab@marshall.usc.edu</a></div>
-  </div>
-</div>
 
 <footer style="text-align:center; padding:32px 24px; background:#1a1a1a; color:rgba(255,255,255,0.4); font-size:0.8rem; line-height:1.6;">
   <p>Marshall Behavioral Research Lab &middot; USC Marshall School of Business</p>
